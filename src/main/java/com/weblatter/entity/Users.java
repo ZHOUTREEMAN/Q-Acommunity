@@ -1,5 +1,6 @@
 package com.weblatter.entity;
 
+//user数据库
 public class Users {
     private String user_id;
     private String user_name;

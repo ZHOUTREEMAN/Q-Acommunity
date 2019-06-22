@@ -1,0 +1,80 @@
+create table Users
+( user_id CHAR(8) PRIMARY KEY,
+  user_name VARCHAR(20) NOT NULL,
+  followers_num SMALLINT,
+  fans_num SMALLINT,
+  email VARCHAR(50),
+  personal_profile VARCHAR(255),
+  password VARCHAR(20)
+);
+
+create table Questions
+( question_id CHAR(5) PRIMARY KEY,
+  user_id CHAR(8) UNIQUE ,
+  question_time DATE NOT NULL,
+  question_status VARCHAR(20),
+  question VARCHAR(255) NOT NULL,
+  complement VARCHAR(255),
+  label_m VARCHAR(20),
+  integral SMALLINT,
+  answer_num SMALLINT,
+  FOREIGN KEY(user_id) REFERENCES Users_m(user_id)
+);
+
+create table Answers
+( answer_id CHAR(6) PRIMARY KEY,
+  answer_user CHAR(8) NOT NULL,
+  answer_time DATE NOT NULL,
+  support_num SMALLINT,
+  objection_num SMALLINT,
+  question_id CHAR(5),
+  answer VARCHAR(255),
+  FOREIGN KEY(answer_user) REFERENCES Users_m(user_id),
+  FOREIGN KEY(question_id) REFERENCES Questions(question_id)
+);
+
+
+create table Workers
+( worker_id CHAR(8) PRIMARY KEY,
+  worker_name VARCHAR(20) NOT NULL,
+  worker_age SMALLINT NOT NULL,
+  worker_phone_num VARCHAR(11),
+  id_numbers VARCHAR(18) NOT NULL,
+  email VARCHAR(50)
+);
+
+create table Messages
+( message_id CHAR(7) PRIMARY KEY,
+  processing_time DATE ,
+  publisher_id CHAR(8) ,
+  message_type VARCHAR(20),
+  processing_status VARCHAR(20),
+  processing_id CHAR(8),
+  FOREIGN KEY(publisher_id) REFERENCES Users_m(user_id),
+  FOREIGN KEY(processing_id) REFERENCES Workers(worker_id)
+);
+
+create table Users_following
+( follow VARCHAR(8),
+  be_followed VARCHAR(8),
+  PRIMARY KEY(follow,be_followed)
+);
+
+create table Questions_following
+( user_n VARCHAR(20),
+  question VARCHAR(255),
+  PRIMARY KEY(user_n,question)
+);
+
+create table Questions_store //收藏和回答
+( Store_id varchar(20),
+  User_id varchar(20),
+  ANSWER_ID VARCHAR(20),
+  FOREIGN KEY(user_id) REFERENCES Users_m(user_id),
+  FOREIGN KEY(answer_id) REFERENCES answers(answer_id)
+);
+create table Subjects_store_questions//问题和话题
+(subject_id varchar(20),
+ question_id varchar(20),
+ FOREIGN KEY(question_id) REFERENCES questions(question_id)
+);

@@ -9,6 +9,7 @@ create table Users
 );
 
 //hello zhoulinhui
+
 create table Questions
 ( question_id CHAR(5) PRIMARY KEY,
   user_id CHAR(8) UNIQUE ,

@@ -81,3 +81,11 @@ create table Subjects_store_questions
  question_id varchar(20),
  FOREIGN KEY(question_id) REFERENCES questions(question_id)
 );
+create table comment_questions
+(
+comment_id varchar(20) primary key,
+comment varchar (255),
+ question_id varchar(20),
+ FOREIGN KEY(question_id) REFERENCES questions(question_id)
+);
+

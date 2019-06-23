@@ -1,4 +1,4 @@
-create table Users
+create table Users_m
 ( user_id CHAR(8) PRIMARY KEY,
   user_name VARCHAR(20) NOT NULL,
   followers_num SMALLINT,
@@ -9,6 +9,7 @@ create table Users
 );
 
 //hello zhoulinhui
+
 create table Questions
 ( question_id CHAR(5) PRIMARY KEY,
   user_id CHAR(8) UNIQUE ,
@@ -75,7 +76,7 @@ create table Answers_store //收藏和回答
   FOREIGN KEY(user_id) REFERENCES Users_m(user_id),
   FOREIGN KEY(answer_id) REFERENCES answers(answer_id)
 );
-create table Subjects_store_questions//问题和话题
+create table Subjects_store_questions
 (subject_id varchar(20),
  question_id varchar(20),
  FOREIGN KEY(question_id) REFERENCES questions(question_id)

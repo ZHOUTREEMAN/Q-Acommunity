@@ -18,6 +18,7 @@ create table Questions
   label_m VARCHAR(20),
   integral SMALLINT,
   answer_num SMALLINT,
+  question_following_num INT,
   FOREIGN KEY(user_id) REFERENCES Users_m(user_id)
 );
 
@@ -66,7 +67,7 @@ create table Questions_following
   PRIMARY KEY(user_n,question)
 );
 
-create table Questions_store //收藏和回答
+create table Answers_store //收藏和回答
 ( Store_id varchar(20),
   User_id varchar(20),
   ANSWER_ID VARCHAR(20),

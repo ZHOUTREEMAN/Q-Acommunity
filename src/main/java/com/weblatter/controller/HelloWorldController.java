@@ -22,21 +22,7 @@ public class HelloWorldController {
     }
     //
     @RequestMapping("/userlist")
-     public String  getUserList(){
-     String sql ="SELECT * FROM users_m";
-     List<Users> userList = jdbcTemplate.query(sql, new RowMapper<Users> () {
-     Users user = null;
-     //@Override
-     public Users mapRow(ResultSet rs, int rowNum) throws SQLException {
-     user = new Users();
-     user.setUser_id(rs.getString("user_id"));
-     user.setUser_name(rs.getString("user_name"));
-     return user;
-     }});
-     String out="";
-     for(Users user:userList){
-         out+=user.getUser_name()+"\r\n";
-     }
-     return out;
-     }
+     public int getUserList(){
+        return 1;
+    }
 }

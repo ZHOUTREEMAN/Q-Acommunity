@@ -8,7 +8,6 @@ create table Users_m
   password VARCHAR(20)
 );
 
-//hello zhoulinhui
 
 create table Questions
 ( question_id CHAR(5) PRIMARY KEY,

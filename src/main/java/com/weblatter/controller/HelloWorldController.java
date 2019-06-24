@@ -22,7 +22,7 @@ public class HelloWorldController {
     }
     //
     @RequestMapping("/userlist")
-     public int getUserList(){
+     public String  getUserList(){
      String sql ="SELECT * FROM users_m";
      List<Users> userList = jdbcTemplate.query(sql, new RowMapper<Users> () {
      Users user = null;
@@ -33,9 +33,10 @@ public class HelloWorldController {
      user.setUser_name(rs.getString("user_name"));
      return user;
      }});
+     String out="";
      for(Users user:userList){
-     System.out.println(user.getUser_name());
+         out+=user.getUser_name()+"\r\n";
      }
-     return userList.size();
+     return out;
      }
 }

@@ -1,4 +1,6 @@
-import java.sql.Date;
+package com.weblatter.entity;
+
+
 public class QuestionsFollowing {
 
   private String userN;

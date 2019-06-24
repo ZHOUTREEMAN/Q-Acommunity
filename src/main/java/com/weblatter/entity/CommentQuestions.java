@@ -1,4 +1,4 @@
-package com.sample;
+package com.weblatter.entity;
 
 
 public class CommentQuestions {

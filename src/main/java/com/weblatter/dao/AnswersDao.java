@@ -21,8 +21,8 @@ public interface AnswersDao {
     @Delete("DELETE FROM ANSWERS WHERE ANSWER_ID=#{ANSWER_ID}")
     public void deleteAnswers(String answerId);
 
-    @Update("UPDATE ANSWERS SET ANSWER_ID=#{ANSWER_ID},ANSWER_USER=#{ANSWER_USER}," +
+    @Update("UPDATE ANSWERS SET ANSWER_USER=#{ANSWER_USER}," +
             "ANSWER_TIME=#{ANSWER_TIME},SUPPORT_NUM=#{SUPPORT_NUM},OBJECTION_NUM=#{OBJECTION_NUM}," +
-            "QUESTION_ID=#{QUESTION_ID},ANSWER=#{ANSWER}")
+            "ANSWER=#{ANSWER}")
     public void updateInformation(Answers answers);
 }

@@ -1,7 +1,5 @@
 package com.weblatter.controller;
 
-import com.weblatter.dao.AnswersDao;
-import com.weblatter.dao.UsersDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -23,10 +21,8 @@ public class HelloWorldController {
         return "HelloWorld";
     }
     //
-    @Autowired
-    UsersDao usersDao;
     @RequestMapping("/userlist")
-     public String getUserList(){
-        return String.valueOf(usersDao.selectAllUsersInformation().size());
+     public int getUserList(){
+        return 1;
     }
 }

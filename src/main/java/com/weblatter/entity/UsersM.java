@@ -3,48 +3,48 @@ package com.weblatter.entity;
 
 public class UsersM {
 
-  private String userId;
-  private String userName;
-  private long followersNum;
-  private long fansNum;
+  private String user_id;
+  private String user_name;
+  private long followers_num;
+  private long fans_num;
   private String email;
-  private String personalProfile;
+  private String personal_profile;
   private String password;
 
 
   public String getUserId() {
-    return userId;
+    return user_id;
   }
 
   public void setUserId(String userId) {
-    this.userId = userId;
+    this.user_id = userId;
   }
 
 
   public String getUserName() {
-    return userName;
+    return user_name;
   }
 
   public void setUserName(String userName) {
-    this.userName = userName;
+    this.user_name = userName;
   }
 
 
-  public long getFollowersNum() {
-    return followersNum;
+  public long getFollowersnum() {
+    return followers_num;
   }
 
-  public void setFollowersNum(long followersNum) {
-    this.followersNum = followersNum;
+  public void setFollowersnum(long followersnum) {
+    this.followers_num = followersnum;
   }
 
 
   public long getFansNum() {
-    return fansNum;
+    return fans_num;
   }
 
   public void setFansNum(long fansNum) {
-    this.fansNum = fansNum;
+    this.fans_num = fansNum;
   }
 
 
@@ -58,11 +58,11 @@ public class UsersM {
 
 
   public String getPersonalProfile() {
-    return personalProfile;
+    return personal_profile;
   }
 
   public void setPersonalProfile(String personalProfile) {
-    this.personalProfile = personalProfile;
+    this.personal_profile = personalProfile;
   }
 
 

@@ -19,8 +19,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @RunWith(SpringRunner.class)
 
 public class ApplicationTests {
-    @Autowired
-    UsersDao usersDao;
 
     @Before
     public void init() {

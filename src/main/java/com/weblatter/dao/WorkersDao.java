@@ -11,20 +11,20 @@ import java.util.List;
 @Repository
 @Mapper
 public interface WorkersDao {
-    @Select("SELECT * FROM WORKERS WHERE WORKERS_ID=#{WORKERS_ID}")
+    @Select("SELECT * FROM WORKERS WHERE WORKERS_ID=#{workersId}")
     public Workers selectWorker(String WorkerId);
 
     @Select("Select * FROM WORKER")
     public List<Workers> selectAllWorkers();
 
-    @Insert("INSERT INTO WORKERS VALUES(#{WORKER_ID}, #{WORKER_NAME}, #{WORKER_AGE}, #{WORKER_PHONE_NUM}, #{ID_NUMBERS}," +
-            " #{EMAIL})")
-    public void insertWorkers(Worker worker);
+    @Insert("INSERT INTO WORKERS VALUES(#{workerId}, #{workerName}, #{workerAge}, #{workerPhoneNum}, #{idNumbers}," +
+            " #{email})")
+    public void insertWorkers(Workers worker);
 
-    @Delete("DELETE FROM WORKERS WHERE WORKER_ID=#{WORKER_ID}")
+    @Delete("DELETE FROM WORKERS WHERE WORKER_ID=#{workerId}")
     public void deleteWorkers(String workerId);
 
-    @Update({"UPDATE WORKERS SET WORKER_NAME=#{WORKER_NAME}," +
-            "WORKER_AGE=#{WORKER_AGE},WORKER_PHONE_NUM=#{WORKER_PHONE_NUM},ID_NUMBERS=#{ID_NUMBERS},EMAIL=#{EMAIL}"})
+    @Update({"UPDATE WORKERS SET WORKER_NAME=#{workerName}," +
+            "WORKER_AGE=#{workerAge},WORKER_PHONE_NUM=#{workerPhoneNum},ID_NUMBERS=#{idNumbers},EMAIL=#{email}"})
     public void updateInformation(Workers workers);
 }

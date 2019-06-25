@@ -68,18 +68,20 @@ create table Questions_following
   PRIMARY KEY(user_n,question)
 );
 
-create table Answers_store //收藏和回答
+create table Answers_store
 ( Store_id varchar(20),
   User_id varchar(20),
   ANSWER_ID VARCHAR(20),
   FOREIGN KEY(user_id) REFERENCES Users_m(user_id),
   FOREIGN KEY(answer_id) REFERENCES answers(answer_id)
 );
+
 create table Subjects_store_questions
 (subject_id varchar(20),
  question_id varchar(20),
  FOREIGN KEY(question_id) REFERENCES questions(question_id)
 );
+
 create table comment_questions
 (
 comment_id varchar(20) primary key,

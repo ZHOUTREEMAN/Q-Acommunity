@@ -10,14 +10,14 @@ import java.util.List;
 @Repository
 @Mapper
 public interface QuestionsDao {
-    @Select("SELECT * FROM QUESTIONS WHERE QUESTION_ID=#{QUESTION_ID}")
+    @Select("SELECT * FROM QUESTIONS WHERE QUESTION_ID=#{questionId}")
     public Questions selectQuestion(String questionId);
 
     @Select("Select * FROM QUESTIONS")
     public List<Questions> selectAllQuestions();
 
-    @Insert("INSERT INTO QUESTIONS VALUES(#{QUESTION_ID}, #{USER_ID}, #{QUESTION_TIME}, #{QUESTION_STATUS}, #{QUESTION}," +
-            " #{COMPLEMENT}, #{LABEL_M},#{INTEGRAL},#{ANSWER_NUM},#{QUESTION_FOLLOWING_NUM})")
+    @Insert("INSERT INTO QUESTIONS VALUES(#{questionId}, #{userId}, #{questionTime}, #{questionStatus}, #{question}," +
+            " #{complement}, #{labelM},#{integral},#{answerNum},#{questionFollowingNum})")
     public void insertQuestions(Questions questions);
 
     @Delete("DELETE FROM QUESTIONS WHERE QUESTION_ID=#{QUESTION_ID}")

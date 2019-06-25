@@ -2,8 +2,11 @@ package com.weblatter.dao;
 
 import com.weblatter.entity.Messages;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
+@Repository
 @Mapper
 public interface MessageDao {
     @Select("SELECT * FROM Messages WHERE message_id=#{messageId}")

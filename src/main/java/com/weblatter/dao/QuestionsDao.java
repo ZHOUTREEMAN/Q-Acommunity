@@ -3,9 +3,11 @@ package com.weblatter.dao;
 import com.weblatter.entity.Questions;
 import com.weblatter.entity.UsersM;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 @Mapper
 public interface QuestionsDao {
     @Select("SELECT * FROM QUESTIONS WHERE QUESTION_ID=#{QUESTION_ID}")

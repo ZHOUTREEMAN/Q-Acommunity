@@ -2,8 +2,10 @@ package com.weblatter.dao;
 
 import com.weblatter.entity.UsersFollowing;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+@Repository
 @Mapper
 public interface Users_followingDao {
     @Select("SELECT * FROM Users_following WHERE follow=#{followUser}")
@@ -17,5 +19,4 @@ public interface Users_followingDao {
 
     @Delete("DELETE FROM Users_following WHERE follow=#{followUser} and be_followed=#{followedUser}")
     public void deleteUserFollowing(String followUser ,String followedUser);//删除关注关系
-
 }

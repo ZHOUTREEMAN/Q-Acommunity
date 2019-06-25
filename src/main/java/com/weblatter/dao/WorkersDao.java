@@ -4,9 +4,11 @@ import com.weblatter.entity.Questions;
 import com.weblatter.entity.Workers;
 import javafx.concurrent.Worker;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 @Mapper
 public interface WorkersDao {
     @Select("SELECT * FROM WORKERS WHERE WORKERS_ID=#{WORKERS_ID}")

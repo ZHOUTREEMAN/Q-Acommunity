@@ -2,8 +2,11 @@ package com.weblatter.dao;
 
 import com.weblatter.entity.QuestionsFollowing;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
+@Repository
 @Mapper
 public interface Questions_followingDao {
     @Select("SELECT * FROM Questions_following WHERE user_n=#{userN}")

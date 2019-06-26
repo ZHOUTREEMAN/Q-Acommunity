@@ -15,16 +15,16 @@ public class QuestionsDaoTest extends ApplicationTests {
     @Test
     public void insertTest(){
         Questions questions=new Questions();
-        questions.setAnswerNum(10);
+        questions.setAnswer_num(10);
         questions.setComplement("lalal");
         questions.setIntegral(10);
-        questions.setLabelM("高考");
+        questions.setLabel_m("高考");
         questions.setQuestion("高考难吗？");
-        questions.setQuestionFollowingNum(10);
-        questions.setQuestionId("00005");
-        questions.setQuestionStatus("已回答");
-        questions.setQuestionTime(new Date(2019, 0, 1));
-        questions.setUserId("00000003");
+        questions.setQuestion_following_num(10);
+        questions.setQuestion_id("00005");
+        questions.setQuestion_status("已回答");
+        questions.setQuestion_time(new Date(2019, 0, 1));
+        questions.setUser_id("00000003");
 
         questionsDao.insertQuestions(questions);
 

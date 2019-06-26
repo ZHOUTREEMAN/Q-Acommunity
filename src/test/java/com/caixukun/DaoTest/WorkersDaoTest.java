@@ -15,21 +15,22 @@ public class WorkersDaoTest extends ApplicationTests {
         Workers workers=new Workers();
         workers.setEmail("123@qq.com");
         workers.setIdNumbers("001");
-        workers.setWorkerAge(18);
-        workers.setWorkerId("00000006");
-        workers.setWorkerName("zhou");
-        workers.setWorkerPhoneNum("18581376626");
+        workers.setWorker_age(18);
+        workers.setWorker_id("00000006");
+        workers.setWorker_name("zhou");
+        workers.setWorker_phone_num("18581376626");
 
         workersDao.insertWorkers(workers);
-//        Answers answers=new Answers();
-//        answers.setAnswerId("000004");
-//        answers.setAnswer("lalalsfa");
-//        answers.setAnswerTime(new Date(1, 1, 23));
-//        answers.setAnswerUser("00000001");
-//        answers.setQuestionId("00001");
-//        answers.setSupportNum(12);
-//        answers.setObjectionNum(1);
-//        answersDao.insertQuestions(answers);
+    }
 
+    @Test
+    public void updateTest(){
+        Workers workers=new Workers();
+        workers.setEmail("123@qq.com");
+        workers.setIdNumbers("001");
+        workers.setWorker_age(18);
+        workers.setWorker_id("00000006");
+        workers.setWorker_name("zhou");
+        workers.setWorker_phone_num("18581376626");
     }
 }

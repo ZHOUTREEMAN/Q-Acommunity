@@ -3,26 +3,26 @@ package com.weblatter.entity;
 
 public class AnswersStore {
 
-  private String storeId;
-  private String userId;
+  private String store_id;
+  private String user_id;
   private String answerId;
 
 
-  public String getStoreId() {
-    return storeId;
+  public String getStore_id() {
+    return store_id;
   }
 
-  public void setStoreId(String storeId) {
-    this.storeId = storeId;
+  public void setStore_id(String store_id) {
+    this.store_id = store_id;
   }
 
 
-  public String getUserId() {
-    return userId;
+  public String getUser_id() {
+    return user_id;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public void setUser_id(String user_id) {
+    this.user_id = user_id;
   }
 
 

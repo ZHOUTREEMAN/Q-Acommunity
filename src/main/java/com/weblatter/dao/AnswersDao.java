@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface AnswersDao {
     @Select("SELECT * FROM ANSWERS WHERE ANSWER_ID=#{answer_id}")
-    public Answers selectAnswer(String answerId);
+    public Answers selectAnswer(String answer_id);
 
     @Select("Select * FROM ANSWERS")
     public List<Answers> selectAllAnswers();
@@ -21,7 +21,7 @@ public interface AnswersDao {
     public void insertQuestions(Answers answers);
 
     @Delete("DELETE FROM ANSWERS WHERE ANSWER_ID=#{answer_id}")
-    public void deleteAnswers(String answerId);
+    public void deleteAnswers(String answer_id);
 
     @Update("UPDATE ANSWERS SET ANSWER_USER=#{answer_user}," +
             "ANSWER_TIME=#{answer_time},SUPPORT_NUM=#{support_num},OBJECTION_NUM=#{objection_num}," +

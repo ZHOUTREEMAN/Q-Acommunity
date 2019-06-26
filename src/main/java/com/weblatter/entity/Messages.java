@@ -3,65 +3,65 @@ package com.weblatter.entity;
 
 public class Messages {
 
-  private String messageId;
-  private java.sql.Date processingTime;
-  private String publisherId;
-  private String messageType;
-  private String processingStatus;
-  private String processingId;
+  private String message_id;
+  private java.sql.Date processing_time;
+  private String publisher_id;
+  private String message_type;
+  private String processing_status;
+  private String processing_id;
 
 
-  public String getMessageId() {
-    return messageId;
+  public String getMessage_id() {
+    return message_id;
   }
 
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-
-  public java.sql.Date getProcessingTime() {
-    return processingTime;
-  }
-
-  public void setProcessingTime(java.sql.Date processingTime) {
-    this.processingTime = processingTime;
+  public void setMessage_id(String message_id) {
+    this.message_id = message_id;
   }
 
 
-  public String getPublisherId() {
-    return publisherId;
+  public java.sql.Date getProcessing_time() {
+    return processing_time;
   }
 
-  public void setPublisherId(String publisherId) {
-    this.publisherId = publisherId;
-  }
-
-
-  public String getMessageType() {
-    return messageType;
-  }
-
-  public void setMessageType(String messageType) {
-    this.messageType = messageType;
+  public void setProcessing_time(java.sql.Date processing_time) {
+    this.processing_time = processing_time;
   }
 
 
-  public String getProcessingStatus() {
-    return processingStatus;
+  public String getPublisher_id() {
+    return publisher_id;
   }
 
-  public void setProcessingStatus(String processingStatus) {
-    this.processingStatus = processingStatus;
+  public void setPublisher_id(String publisher_id) {
+    this.publisher_id = publisher_id;
   }
 
 
-  public String getProcessingId() {
-    return processingId;
+  public String getMessage_type() {
+    return message_type;
   }
 
-  public void setProcessingId(String processingId) {
-    this.processingId = processingId;
+  public void setMessage_type(String message_type) {
+    this.message_type = message_type;
+  }
+
+
+  public String getProcessing_status() {
+    return processing_status;
+  }
+
+  public void setProcessing_status(String processing_status) {
+    this.processing_status = processing_status;
+  }
+
+
+  public String getProcessing_id() {
+    return processing_id;
+  }
+
+  public void setProcessing_id(String processing_id) {
+    this.processing_id = processing_id;
   }
 
 }

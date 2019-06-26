@@ -3,66 +3,66 @@ package com.weblatter.entity;
 
 public class Answers extends Inspect {
 
-  private String answerId;
-  private String answerUser;
-  private java.sql.Date answerTime;
-  private long supportNum;
-  private long objectionNum;
-  private String questionId;
+  private String answer_id;
+  private String answer_user;
+  private java.sql.Date answer_time;
+  private long support_num;
+  private long objection_num;
+  private String question_id;
   private String answer;
 
 
-  public String getAnswerId() {
-    return answerId;
+  public String getAnswer_id() {
+    return answer_id;
   }
 
-  public void setAnswerId(String answerId) {
-    this.answerId = answerId;
-  }
-
-
-  public String getAnswerUser() {
-    return answerUser;
-  }
-
-  public void setAnswerUser(String answerUser) {
-    this.answerUser = answerUser;
+  public void setAnswer_id(String answer_id) {
+    this.answer_id = answer_id;
   }
 
 
-  public java.sql.Date getAnswerTime() {
-    return answerTime;
+  public String getAnswer_user() {
+    return answer_user;
   }
 
-  public void setAnswerTime(java.sql.Date answerTime) {
-    this.answerTime = answerTime;
-  }
-
-
-  public long getSupportNum() {
-    return supportNum;
-  }
-
-  public void setSupportNum(long supportNum) {
-    this.supportNum = supportNum;
+  public void setAnswer_user(String answer_user) {
+    this.answer_user = answer_user;
   }
 
 
-  public long getObjectionNum() {
-    return objectionNum;
+  public java.sql.Date getAnswer_time() {
+    return answer_time;
   }
 
-  public void setObjectionNum(long objectionNum) {
-    this.objectionNum = objectionNum;
+  public void setAnswer_time(java.sql.Date answer_time) {
+    this.answer_time = answer_time;
   }
 
 
-  public String getQuestionId() {
-    return questionId;
+  public long getSupport_num() {
+    return support_num;
   }
 
-  public void setQuestionId(String questionId) {
-    this.questionId = questionId;
+  public void setSupport_num(long support_num) {
+    this.support_num = support_num;
+  }
+
+
+  public long getObjection_num() {
+    return objection_num;
+  }
+
+  public void setObjection_num(long objection_num) {
+    this.objection_num = objection_num;
+  }
+
+
+  public String getQuestion_id() {
+    return question_id;
+  }
+
+  public void setQuestion_id(String question_id) {
+    this.question_id = question_id;
   }
 
 

@@ -3,51 +3,51 @@ package com.weblatter.entity;
 
 public class Questions extends Inspect {
 
-  private String questionId;
-  private String userId;
-  private java.sql.Date questionTime;
-  private String questionStatus;
+  private String question_id;
+  private String user_id;
+  private java.sql.Date question_time;
+  private String question_status;
   private String question;
   private String complement;
-  private String labelM;
+  private String label_m;
   private long integral;
-  private long answerNum;
-  private long questionFollowingNum;
+  private long answer_num;
+  private long question_following_num;
 
 
-  public String getQuestionId() {
-    return questionId;
+  public String getQuestion_id() {
+    return question_id;
   }
 
-  public void setQuestionId(String questionId) {
-    this.questionId = questionId;
-  }
-
-
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public void setQuestion_id(String question_id) {
+    this.question_id = question_id;
   }
 
 
-  public java.sql.Date getQuestionTime() {
-    return questionTime;
+  public String getUser_id() {
+    return user_id;
   }
 
-  public void setQuestionTime(java.sql.Date questionTime) {
-    this.questionTime = questionTime;
+  public void setUser_id(String user_id) {
+    this.user_id = user_id;
   }
 
 
-  public String getQuestionStatus() {
-    return questionStatus;
+  public java.sql.Date getQuestion_time() {
+    return question_time;
   }
 
-  public void setQuestionStatus(String questionStatus) {
-    this.questionStatus = questionStatus;
+  public void setQuestion_time(java.sql.Date question_time) {
+    this.question_time = question_time;
+  }
+
+
+  public String getQuestion_status() {
+    return question_status;
+  }
+
+  public void setQuestion_status(String question_status) {
+    this.question_status = question_status;
   }
 
 
@@ -69,12 +69,12 @@ public class Questions extends Inspect {
   }
 
 
-  public String getLabelM() {
-    return labelM;
+  public String getLabel_m() {
+    return label_m;
   }
 
-  public void setLabelM(String labelM) {
-    this.labelM = labelM;
+  public void setLabel_m(String label_m) {
+    this.label_m = label_m;
   }
 
 
@@ -87,21 +87,21 @@ public class Questions extends Inspect {
   }
 
 
-  public long getAnswerNum() {
-    return answerNum;
+  public long getAnswer_num() {
+    return answer_num;
   }
 
-  public void setAnswerNum(long answerNum) {
-    this.answerNum = answerNum;
+  public void setAnswer_num(long answer_num) {
+    this.answer_num = answer_num;
   }
 
 
-  public long getQuestionFollowingNum() {
-    return questionFollowingNum;
+  public long getQuestion_following_num() {
+    return question_following_num;
   }
 
-  public void setQuestionFollowingNum(long questionFollowingNum) {
-    this.questionFollowingNum = questionFollowingNum;
+  public void setQuestion_following_num(long question_following_num) {
+    this.question_following_num = question_following_num;
   }
 
 }

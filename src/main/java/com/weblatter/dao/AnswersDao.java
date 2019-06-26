@@ -10,21 +10,21 @@ import java.util.List;
 @Repository
 @Mapper
 public interface AnswersDao {
-    @Select("SELECT * FROM ANSWERS WHERE ANSWER_ID=#{answerId}")
+    @Select("SELECT * FROM ANSWERS WHERE ANSWER_ID=#{answer_id}")
     public Answers selectAnswer(String answerId);
 
     @Select("Select * FROM ANSWERS")
     public List<Answers> selectAllAnswers();
 
-    @Insert("INSERT INTO ANSWERS VALUES(#{answerId}, #{answerUser}, #{answerTime}, #{supportNum}, #{objectionNum}," +
-            " #{questionId}, #{answer})")
+    @Insert("INSERT INTO ANSWERS VALUES(#{answer_id}, #{answer_user}, #{answer_time}, #{support_num}, #{objection_num}," +
+            " #{question_id}, #{answer})")
     public void insertQuestions(Answers answers);
 
-    @Delete("DELETE FROM ANSWERS WHERE ANSWER_ID=#{answerId}")
+    @Delete("DELETE FROM ANSWERS WHERE ANSWER_ID=#{answer_id}")
     public void deleteAnswers(String answerId);
 
-    @Update("UPDATE ANSWERS SET ANSWER_USER=#{answerUser}," +
-            "ANSWER_TIME=#{answerTime},SUPPORT_NUM=#{supportNum},OBJECTION_NUM=#{objectionNum}," +
+    @Update("UPDATE ANSWERS SET ANSWER_USER=#{answer_user}," +
+            "ANSWER_TIME=#{answer_time},SUPPORT_NUM=#{support_num},OBJECTION_NUM=#{objection_num}," +
             "ANSWER=#{answer}")
     public void updateInformation(Answers answers);
 }

@@ -11,7 +11,7 @@ create table Users_m
 
 create table Questions
 ( question_id CHAR(5) PRIMARY KEY,
-  user_id CHAR(8) UNIQUE ,
+  user_id CHAR(8) ,
   question_time DATE NOT NULL,
   question_status VARCHAR(20),
   question VARCHAR(255) NOT NULL,

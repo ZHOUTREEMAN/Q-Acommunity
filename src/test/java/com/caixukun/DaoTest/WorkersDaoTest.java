@@ -7,6 +7,8 @@ import com.weblatter.entity.Workers;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 public class WorkersDaoTest extends ApplicationTests {
     @Autowired
     private WorkersDao workersDao;
@@ -24,6 +26,21 @@ public class WorkersDaoTest extends ApplicationTests {
     }
 
     @Test
+    public void selectTest(){
+        List<Workers> workersList=workersDao.selectAllWorkers();
+        for (Workers workers :workersList) {
+            System.out.println(workers.getWorker_id());
+        }
+
+    }
+
+
+    @Test
+    public void deleteTest(){
+        workersDao.deleteWorkers("00000006");
+    }
+
+    @Test
     public void updateTest(){
         Workers workers=new Workers();
         workers.setEmail("123@qq.com");
@@ -32,5 +49,7 @@ public class WorkersDaoTest extends ApplicationTests {
         workers.setWorker_id("00000006");
         workers.setWorker_name("zhou");
         workers.setWorker_phone_num("18581376626");
+
+        workersDao.updateInformation(workers);
     }
 }

@@ -17,7 +17,8 @@ public interface WorkersDao {
     @Select("Select * FROM WORKER")
     public List<Workers> selectAllWorkers();
 
-    @Insert("INSERT INTO WORKERS VALUES(#{worker_id}, #{worker_name}, #{worker_age}, #{worker_phone_num}, #{id_numbers}," +
+    @Insert("INSERT INTO WORKERS VALUES(#{worker_id}, #{worker_name}, #{worker_age}," +
+            " #{worker_phone_num}, #{id_numbers}," +
             " #{email})")
     public void insertWorkers(Workers worker);
 

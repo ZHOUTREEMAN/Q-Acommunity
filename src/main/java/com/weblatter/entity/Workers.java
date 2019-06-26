@@ -3,56 +3,56 @@ package com.weblatter.entity;
 
 public class Workers {
 
-  private String workerId;
-  private String workerName;
-  private long workerAge;
-  private String workerPhoneNum;
-  private String idNumbers;
+  private String worker_id;
+  private String worker_name;
+  private long worker_age;
+  private String worker_phone_num;
+  private String id_numbers;
   private String email;
 
 
-  public String getWorkerId() {
-    return workerId;
+  public String getWorker_id() {
+    return worker_id;
   }
 
-  public void setWorkerId(String workerId) {
-    this.workerId = workerId;
-  }
-
-
-  public String getWorkerName() {
-    return workerName;
-  }
-
-  public void setWorkerName(String workerName) {
-    this.workerName = workerName;
+  public void setWorker_id(String worker_id) {
+    this.worker_id = worker_id;
   }
 
 
-  public long getWorkerAge() {
-    return workerAge;
+  public String getWorker_name() {
+    return worker_name;
   }
 
-  public void setWorkerAge(long workerAge) {
-    this.workerAge = workerAge;
+  public void setWorker_name(String worker_name) {
+    this.worker_name = worker_name;
   }
 
 
-  public String getWorkerPhoneNum() {
-    return workerPhoneNum;
+  public long getWorker_age() {
+    return worker_age;
   }
 
-  public void setWorkerPhoneNum(String workerPhoneNum) {
-    this.workerPhoneNum = workerPhoneNum;
+  public void setWorker_age(long worker_age) {
+    this.worker_age = worker_age;
+  }
+
+
+  public String getWorker_phone_num() {
+    return worker_phone_num;
+  }
+
+  public void setWorker_phone_num(String worker_phone_num) {
+    this.worker_phone_num = worker_phone_num;
   }
 
 
   public String getIdNumbers() {
-    return idNumbers;
+    return id_numbers;
   }
 
   public void setIdNumbers(String idNumbers) {
-    this.idNumbers = idNumbers;
+    this.id_numbers = idNumbers;
   }
 
 

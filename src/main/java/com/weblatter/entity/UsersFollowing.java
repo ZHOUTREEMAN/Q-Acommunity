@@ -4,7 +4,7 @@ package com.weblatter.entity;
 public class UsersFollowing {
 
   private String follow;
-  private String beFollowed;
+  private String be_followed;
 
 
   public String getFollow() {
@@ -16,12 +16,12 @@ public class UsersFollowing {
   }
 
 
-  public String getBeFollowed() {
-    return beFollowed;
+  public String getBe_followed() {
+    return be_followed;
   }
 
-  public void setBeFollowed(String beFollowed) {
-    this.beFollowed = beFollowed;
+  public void setBe_followed(String be_followed) {
+    this.be_followed = be_followed;
   }
 
 }

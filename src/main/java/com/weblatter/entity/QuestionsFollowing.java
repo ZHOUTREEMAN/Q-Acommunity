@@ -3,16 +3,16 @@ package com.weblatter.entity;
 
 public class QuestionsFollowing {
 
-  private String userN;
+  private String user_n;
   private String question;
 
 
-  public String getUserN() {
-    return userN;
+  public String getUser_n() {
+    return user_n;
   }
 
-  public void setUserN(String userN) {
-    this.userN = userN;
+  public void setUser_n(String user_n) {
+    this.user_n = user_n;
   }
 
 

@@ -3,25 +3,25 @@ package com.weblatter.entity;
 
 public class SubjectsStoreQuestions {
 
-  private String subjectId;
-  private String questionId;
+  private String subject_id;
+  private String question_id;
 
 
-  public String getSubjectId() {
-    return subjectId;
+  public String getSubject_id() {
+    return subject_id;
   }
 
-  public void setSubjectId(String subjectId) {
-    this.subjectId = subjectId;
+  public void setSubject_id(String subject_id) {
+    this.subject_id = subject_id;
   }
 
 
   public String getQuestionId() {
-    return questionId;
+    return question_id;
   }
 
   public void setQuestionId(String questionId) {
-    this.questionId = questionId;
+    this.question_id = questionId;
   }
 
 }

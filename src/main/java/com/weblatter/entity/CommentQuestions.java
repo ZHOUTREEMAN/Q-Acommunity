@@ -3,17 +3,17 @@ package com.weblatter.entity;
 
 public class CommentQuestions {
 
-  private String commentId;
+  private String comment_id;
   private String comment;
-  private String questionId;
+  private String question_id;
 
 
-  public String getCommentId() {
-    return commentId;
+  public String getComment_id() {
+    return comment_id;
   }
 
-  public void setCommentId(String commentId) {
-    this.commentId = commentId;
+  public void setComment_id(String comment_id) {
+    this.comment_id = comment_id;
   }
 
 
@@ -27,11 +27,11 @@ public class CommentQuestions {
 
 
   public String getQuestionId() {
-    return questionId;
+    return question_id;
   }
 
   public void setQuestionId(String questionId) {
-    this.questionId = questionId;
+    this.question_id = questionId;
   }
 
 }

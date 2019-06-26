@@ -27,6 +27,6 @@ public class HelloWorldController {
     UsersDao usersDao;
     @RequestMapping("/userlist")
      public String getUserList(){
-        return usersDao.selectAllUsersInformation().get(0).getUserName();
+        return String.valueOf(usersDao.selectAllUsersInformation().size());
     }
 }

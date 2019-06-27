@@ -9,19 +9,19 @@ import java.util.List;
 @Repository
 @Mapper
 public interface comment_questionsDao {
-    @Select("SELECT * FROM COMMENTQUESTIONS WHERE COMMENT_ID=#{commentId}")
-    public CommentQuestions selectComment(String commentId);
+    @Select("SELECT * FROM COMMENTQUESTIONS WHERE COMMENT_ID=#{comment_id}")
+    public CommentQuestions selectComment(String comment_id);
 
     @Select("Select * FROM COMMENTQUESTIONS")
     public List<CommentQuestions> selectAllComments();
 
-    @Insert("INSERT INTO COMMENTQUESTIONS VALUES(#{commentId},#{comment},#{questionId})")
-    public void insertComments(CommentQuestions comments);
+    @Insert("INSERT INTO COMMENTQUESTIONS VALUES(#{comment_id},#{comment},#{question_id})")
+    public void insertComments(CommentQuestions commentquestions);
 
-    @Delete("DELETE FROM COMMENTQUESTIONS WHERE COMMENT_ID=#{commentId}")
-    public void deleteComment(String commentId);
+    @Delete("DELETE FROM COMMENTQUESTIONS WHERE COMMENT_ID=#{comment_id}")
+    public void deleteComment(String comment_id);
 
     @Update("UPDATE COMMENTQUESTIONS SET "+
-            "COMMENT_ID=#{COMMENT_ID},COMMENT=#{COMMENT},QUESTION_ID=#{QUESTION_ID}")
-    public void updateInformation(CommentQuestions comments);
+            "COMMENT=#{COMMENT},QUESTION_ID=#{QUESTION_ID} WHERE COMMENT_ID=#{comment_id}")
+    public void updateInformation(CommentQuestions commentquestions);
 }

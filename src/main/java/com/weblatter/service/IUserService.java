@@ -27,7 +27,7 @@ public interface IUserService {
      * 通过两个参数自动生成问题其他信息，注意积分的变化
      */
 
-    public int answerQuestion(String questionId, String userID);
+    public int answerQuestion(String questionId, String userID,String answer);
 
     /**
      * 评论
@@ -35,7 +35,7 @@ public interface IUserService {
      * @param userId
      * @return 更新用户积分
      */
-    public void commentAnswer(String answerId, String userId);
+    public void commentAnswer(String answerId, String userId,String comment);
 
     /**
      * 点赞

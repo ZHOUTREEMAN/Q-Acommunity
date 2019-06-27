@@ -24,6 +24,9 @@ public interface UsersDao {
 //    })
     public UsersM selectUsersInformation(String userName);
 
+    @Select("SELECT * FROM USERS_M WHERE USER_ID=#{user_id}")
+    public UsersM selectUsersInformation2(String user_id);
+
     @Select("Select * FROM USERS_M")
     public List<UsersM> selectAllUsersInformation();
 

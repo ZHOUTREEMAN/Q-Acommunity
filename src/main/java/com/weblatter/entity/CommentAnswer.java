@@ -1,11 +1,11 @@
 package com.weblatter.entity;
 
 
-public class CommentQuestions {
+public class CommentAnswer {
 
   private String comment_id;
   private String comment;
-  private String question_id;
+  private String answer_id;
 
 
   public String getComment_id() {
@@ -26,12 +26,12 @@ public class CommentQuestions {
   }
 
 
-  public String getQuestionId() {
-    return question_id;
+  public String getAnswerId() {
+    return answer_id;
   }
 
-  public void setQuestionId(String questionId) {
-    this.question_id = questionId;
+  public void setAnswerId(String answerId) {
+    this.answer_id = answerId;
   }
 
 }

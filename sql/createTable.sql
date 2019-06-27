@@ -46,7 +46,7 @@ create table Workers
 );
 
 create table Messages
-( message_id CHAR(7) PRIMARY KEY,
+( message_id CHAR(9) PRIMARY KEY,
   processing_time DATE ,
   publisher_id CHAR(8) ,
   message_type VARCHAR(20),
@@ -82,11 +82,11 @@ create table Subjects_store_questions
  FOREIGN KEY(question_id) REFERENCES questions(question_id)
 );
 
-create table comment_questions
+create table comment_answers/*需要修改*/
 (
 comment_id varchar(20) primary key,
 comment varchar (255),
- question_id varchar(20),
- FOREIGN KEY(question_id) REFERENCES questions(question_id)
+answer_id VARCHAR(20),
+FOREIGN KEY(answer_id) REFERENCES answers(answer_id)
 );
 

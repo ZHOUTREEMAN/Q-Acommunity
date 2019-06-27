@@ -3,13 +3,13 @@ package com.weblatter.entity;
 
 public class Answers extends Inspect {
 
-  private String answer_id;
-  private String answer_user;
-  private java.sql.Date answer_time;
-  private long support_num;
-  private long objection_num;
-  private String question_id;
-  private String answer;
+    private String answer_id;
+    private String answer_user;
+    private java.sql.Date answer_time;
+    private long support_num;
+    private long objection_num;
+    private String question_id;
+    private String answer;
 
 
   public String getAnswer_id() {

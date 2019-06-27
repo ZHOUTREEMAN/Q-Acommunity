@@ -1,6 +1,6 @@
 package com.weblatter.service;
 
-import com.weblatter.entity.CommentQuestions;
+import com.weblatter.entity.CommentAnswer;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ public interface ICommentService {
      * @param answerId
      * @return 评论列表
      */
-    public List<CommentQuestions>getCommentsList(String answerId);
+    public List<CommentAnswer>getCommentsList(String answerId);
 }

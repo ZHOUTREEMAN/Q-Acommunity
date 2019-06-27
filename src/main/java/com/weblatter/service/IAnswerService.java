@@ -2,6 +2,8 @@ package com.weblatter.service;
 
 import com.weblatter.entity.UsersM;
 
+import java.util.List;
+
 public interface IAnswerService {
 
     /**
@@ -9,5 +11,5 @@ public interface IAnswerService {
      * @param questionId
      * @return用户信息
      */
-    public UsersM getAnswerUserInformation(String questionId);
+    public List<UsersM> getAnswerUserInformation(String questionId);
 }

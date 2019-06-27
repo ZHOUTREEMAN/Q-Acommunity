@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 @Mapper
 public interface Questions_followingDao {
-    @Select("SELECT * FROM Questions_following WHERE user_n=#{userN}")
+    @Select("SELECT * FROM Questions_following WHERE user_n=#{user_n}")
     public List<QuestionsFollowing> selectFollowQuestions(String userN);//查看用户关注的问题
 
     @Select("SELECT * FROM Questions_following WHERE question=#{ques}")
@@ -18,6 +18,6 @@ public interface Questions_followingDao {
     @Insert("INSERT INTO Questions_following VALUES(#{user_n}, #{question})")
     public void insertNewQuestionsFollowing(QuestionsFollowing questionsfollowing);//新增关注关系
 
-    @Delete("DELETE FROM Questions_following WHERE user_n=#{userN} and question=#{ques}")
-    public void deleteQuestionsFollowing(String userN,String ques);//删除关注关系
+    @Delete("DELETE FROM Questions_following WHERE user_n=#{user_n} and question=#{question}")
+    public void deleteQuestionsFollowing(QuestionsFollowing questionsfollowing);//删除关注关系
 }

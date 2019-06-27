@@ -8,6 +8,14 @@ create table Users_m
   password VARCHAR(20)
 );
 
+create table Workers
+( worker_id CHAR(8) PRIMARY KEY,
+  worker_name VARCHAR(20) NOT NULL,
+  worker_age SMALLINT NOT NULL,
+  worker_phone_num VARCHAR(11),
+  id_numbers VARCHAR(18) NOT NULL,
+  email VARCHAR(50)
+);
 
 create table Questions
 ( question_id CHAR(5) PRIMARY KEY,
@@ -41,15 +49,6 @@ create table Answers
   FOREIGN KEY(question_id) REFERENCES Questions(question_id)
 );
 
-
-create table Workers
-( worker_id CHAR(8) PRIMARY KEY,
-  worker_name VARCHAR(20) NOT NULL,
-  worker_age SMALLINT NOT NULL,
-  worker_phone_num VARCHAR(11),
-  id_numbers VARCHAR(18) NOT NULL,
-  email VARCHAR(50)
-);
 
 # create table Messages
 # ( message_id CHAR(9) PRIMARY KEY,

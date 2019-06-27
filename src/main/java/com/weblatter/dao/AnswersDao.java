@@ -13,8 +13,14 @@ public interface AnswersDao {
     @Select("SELECT * FROM ANSWERS WHERE question_id=#{question_id}")
     public  List<Answers> selectAnswer(String question_id);
 
-    @Select("SELECT * FROM ANSWERS WHERE ANSWER_ID=#{answer_id}")
-    public Answers selectByAnswerId(String answer_id);
+    @Select("SELECT * FROM ANSWERS WHERE answer_id=#{answer_id}")
+    public  Answers selectByAnswerId(String answer_id);
+
+    @Select("SELECT * FROM ANSWERS WHERE processing_status='0'")
+    public  List<Answers> selectUndoAnswer( );
+
+    @Select("SELECT * FROM ANSWERS WHERE processing_status='1'")
+    public  List<Answers> selectDoneAnswer( );
 
     @Select("Select * FROM ANSWERS")
     public List<Answers> selectAllAnswers();

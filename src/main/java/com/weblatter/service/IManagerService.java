@@ -21,7 +21,8 @@ public interface IManagerService {
      * @param isPass 是否通过
      * @param suggestion 修改意见
      */
-    public void managerInspect(String answerAndQuestionId, String userId, boolean isPass,String suggestion);
+    //isPass 用int型 1为通过，0为拒绝
+    public void managerInspect(String answerAndQuestionId, String userId, int isPass,String suggestion);
 
     /**
      *展示所有审核过的问题

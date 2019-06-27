@@ -1,7 +1,7 @@
 #用户数据
-INSERT INTO Users_m VALUES('00000001','经陈旭',1,1,'123@qq.com','苦逼高中生','123456');
-INSERT INTO Users_m VALUES('00000002','马云',1,1,'173@qq.com','阿里清洁工','123456');
-INSERT INTO Users_m VALUES('00000003','李世民',1,1,'523@qq.com','过气皇帝','123456');
+INSERT INTO Users_m VALUES('00000001','经陈旭',1,1,'123@qq.com','苦逼高中生',0,'123456');
+INSERT INTO Users_m VALUES('00000002','马云',1,1,'173@qq.com','阿里清洁工',0,'123456');
+INSERT INTO Users_m VALUES('00000003','李世民',1,1,'523@qq.com','过气皇帝',0,'123456');
 #审核员数据
 INSERT INTO Workers VALUES('00000001','小明',18,'13967641852','00003@qq.com','360430196407121112');
 INSERT INTO Workers VALUES('00000002','小梅',18,'18870215779','00005@qq.com','360430196402121111');

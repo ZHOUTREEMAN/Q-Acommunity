@@ -16,9 +16,11 @@ public class AnswerService implements IAnswerService {
     AnswersDao answersDao ;
     UsersDao usersDao;
     public List<UsersM> getAnswerUserInformation(String questionId) {
-            List<Answers> ans = answersDao.selectAnswer(questionId);
+            List<Answers> ans =  answersDao.selectAnswer(questionId);
             List<UsersM> um = null;//此处需要判断答案是否通过审核
             for (int i = 0; i < ans.size(); i++) {
+                if(ans.get(i).getProcessing_status()!="1")//判断是否审核
+                    continue;
                 String userid = ans.get(i).getAnswer_user();
                 UsersM usersM = usersDao.selectUsersInformation2(userid);
                 if (!usersM.equals(null))

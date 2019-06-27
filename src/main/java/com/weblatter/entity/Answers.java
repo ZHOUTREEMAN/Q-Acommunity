@@ -1,7 +1,7 @@
 package com.weblatter.entity;
 
 
-public class Answers {
+public class Answers extends Inspect {
 
   private String answer_id;
   private String answer_user;

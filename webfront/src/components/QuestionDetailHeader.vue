@@ -5,6 +5,7 @@
   <h4>{{title}}</h4>
   <div>
     <button v-on:click="">关注问题</button>
+    <el-button></el-button>
     <button v-on:click="">写回答</button>
     <button v-on:click="">邀请回答</button>
     <div>
@@ -12,6 +13,7 @@
       <span>{{commentNum}}条评论</span>
       <icon>分享</icon>
       <icon>举报</icon>
+
     </div>
     <span></span>
     <span></span>
@@ -37,6 +39,4 @@
     }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

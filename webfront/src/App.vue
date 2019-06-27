@@ -1,23 +1,17 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <hot-list></hot-list>
   </div>
 </template>
 
 <script>
+import NoteArea from "./components/NoteArea";
+import PictureUpload from "./components/pictureUpload";
+import HotList from "./components/HotList";
 export default {
-  name: 'App'
+  name: 'App',
+  components: {HotList, PictureUpload, NoteArea}
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+

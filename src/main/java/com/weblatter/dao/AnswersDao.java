@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 @Mapper
 public interface AnswersDao {
-    @Select("SELECT * FROM ANSWERS WHERE answer_id=#{answer_id}")
-    public Answers selectAnswer(String answer_id);
+    @Select("SELECT * FROM ANSWERS WHERE question_id=#{question_id}")
+    public  List<Answers> selectAnswer(String question_id);
 
     @Select("Select * FROM ANSWERS")
     public List<Answers> selectAllAnswers();

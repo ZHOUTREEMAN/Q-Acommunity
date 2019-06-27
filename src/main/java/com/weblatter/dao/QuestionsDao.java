@@ -21,7 +21,7 @@ public interface QuestionsDao {
     public void insertQuestions(Questions questions);
 
     @Delete("DELETE FROM QUESTIONS WHERE QUESTION_ID=#{question_id}")
-    public void deleteQuestion(String questionId);
+    public void deleteQuestion(String question_id);
 
     @Update("UPDATE QUESTIONS SET "+
             "QUESTION_TIME=#{question_time},QUESTION_STATUS=#{question_status},QUESTION=#{question}," +

@@ -23,7 +23,7 @@ public interface WorkersDao {
     public void insertWorkers(Workers worker);
 
     @Delete("DELETE FROM WORKERS WHERE WORKER_ID=#{worker_id}")
-    public void deleteWorkers(String workerId);
+    public void deleteWorkers(String worker_id);
 
     @Update({"UPDATE WORKERS SET WORKER_NAME=#{worker_name}," +
             "WORKER_AGE=#{worker_age},WORKER_PHONE_NUM=#{worker_phone_num},ID_NUMBERS=#{id_numbers},EMAIL=#{email} WHERE WORKER_ID=#{worker_id}"})

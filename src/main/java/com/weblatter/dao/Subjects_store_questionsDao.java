@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface Subjects_store_questionsDao {
     @Select("SELECT * FROM SUBJECTSSTOREQUESTIONS WHERE SUBJECT_ID=#{subject_id}")
-    public SubjectsStoreQuestions selectSubject(String subjectId);
+    public SubjectsStoreQuestions selectSubject(String subject_id);
 
     @Select("Select * FROM SUBJECTSSTOREQUESTIONS")
     public List<SubjectsStoreQuestions> selectAllSubjects();
@@ -19,7 +19,7 @@ public interface Subjects_store_questionsDao {
     public void insertSubjects(SubjectsStoreQuestions subjects);
 
     @Delete("DELETE FROM SUBJECTSSTOREQUESTIONS WHERE SUBJECT_ID=#{subject_id}")
-    public void deleteSubject(String subjectId);
+    public void deleteSubject(String subject_id);
 
     @Update("UPDATE SUBJECTSSTOREQUESTIONS SET "+
             "SUBJECT_ID=#{subject_id},QUESTION_ID=#{question_id}")

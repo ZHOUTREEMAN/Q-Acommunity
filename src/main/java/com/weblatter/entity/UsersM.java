@@ -9,15 +9,16 @@ public class UsersM {
   private long fans_num;
   private String email;
   private String personal_profile;
+  private long integral;
   private String password;
 
 
-  public String getUserId() {
+  public String getUser_id() {
     return user_id;
   }
 
-  public void setUserId(String userId) {
-    this.user_id = userId;
+  public void setUser_id(String user_id) {
+    this.user_id = user_id;
   }
 
 
@@ -30,21 +31,21 @@ public class UsersM {
   }
 
 
-  public long getFollowersnum() {
+  public long getFollowers_num() {
     return followers_num;
   }
 
-  public void setFollowersnum(long followersnum) {
-    this.followers_num = followersnum;
+  public void setFollowers_num(long followers_num) {
+    this.followers_num = followers_num;
   }
 
 
-  public long getFansNum() {
+  public long getFans_num() {
     return fans_num;
   }
 
-  public void setFansNum(long fansNum) {
-    this.fans_num = fansNum;
+  public void setFans_num(long fans_num) {
+    this.fans_num = fans_num;
   }
 
 
@@ -57,12 +58,21 @@ public class UsersM {
   }
 
 
-  public String getPersonalProfile() {
+  public String getPersonal_profile() {
     return personal_profile;
   }
 
-  public void setPersonalProfile(String personalProfile) {
-    this.personal_profile = personalProfile;
+  public void setPersonal_profile(String personal_profile) {
+    this.personal_profile = personal_profile;
+  }
+
+
+  public long getIntegral() {
+    return integral;
+  }
+
+  public void setIntegral(long integral) {
+    this.integral = integral;
   }
 
 

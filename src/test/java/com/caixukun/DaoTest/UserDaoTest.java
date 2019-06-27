@@ -16,12 +16,12 @@ public class UserDaoTest extends ApplicationTests {
     @Test
     public void insertTest(){
         UsersM usersM = new UsersM();
-        usersM.setUserId("wddwedw");
+        usersM.setUser_id("wddwedw");
         usersM.setUserName("miserman");
-        usersM.setPersonalProfile("http://323.423.4234.34");
+        usersM.setPersonal_profile("http://323.423.4234.34");
         usersM.setPassword("123456");
         usersM.setFollowersnum(12);
-        usersM.setFansNum(43);
+        usersM.setFans_num(43);
         usersDaoTest.insertNewUser(usersM);
     }
 
@@ -40,12 +40,12 @@ public class UserDaoTest extends ApplicationTests {
     @Test
     public void update(){
         UsersM usersM = new UsersM();
-        usersM.setUserId("wddwedw");
+        usersM.setUser_id("wddwedw");
         usersM.setUserName("wangmuxin");
-        usersM.setPersonalProfile("http://323.423.4234.34");
+        usersM.setPersonal_profile("http://323.423.4234.34");
         usersM.setPassword("432342");
         usersM.setFollowersnum(12);
-        usersM.setFansNum(43);
+        usersM.setFans_num(43);
         usersDaoTest.updateInformation(usersM);
     }
 }

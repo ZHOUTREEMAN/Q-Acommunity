@@ -5,6 +5,7 @@ create table Users_m
   fans_num SMALLINT,
   email VARCHAR(50),
   personal_profile VARCHAR(255),
+  integral SMALLINT,
   password VARCHAR(20)
 );
 

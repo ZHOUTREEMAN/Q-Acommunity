@@ -74,7 +74,7 @@ public class UserMyService implements IUserService {
     }
 
     public void support(String answerId) {
-        Answers answers = answersDao.selectAnswer(answerId);
+        Answers answers = answersDao.selectByAnswerId(answerId);
         answers.setSupport_num(answers.getSupport_num()+1);
         answersDao.updateInformation(answers);
     }

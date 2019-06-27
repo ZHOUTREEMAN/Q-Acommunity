@@ -20,7 +20,7 @@ public class UserDaoTest extends ApplicationTests {
         usersM.setUserName("miserman");
         usersM.setPersonal_profile("http://323.423.4234.34");
         usersM.setPassword("123456");
-        usersM.setFollowersnum(12);
+        //usersM.setFollowersnum(12);
         usersM.setFans_num(43);
         usersDaoTest.insertNewUser(usersM);
     }
@@ -44,7 +44,7 @@ public class UserDaoTest extends ApplicationTests {
         usersM.setUserName("wangmuxin");
         usersM.setPersonal_profile("http://323.423.4234.34");
         usersM.setPassword("432342");
-        usersM.setFollowersnum(12);
+        //usersM.setFollowersnum(12);
         usersM.setFans_num(43);
         usersDaoTest.updateInformation(usersM);
     }

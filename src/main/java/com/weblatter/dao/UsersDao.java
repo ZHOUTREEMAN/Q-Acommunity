@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface UsersDao {
 
-    @Select("SELECT * FROM USERS_M WHERE USER_NAME=#{userName}")
+    @Select("SELECT * FROM USERS_M WHERE USER_NAME=#{user_name}")
 //    @Results({
 //            @Result(column = "user_id", property = "userId", jdbcType = JdbcType.CHAR, id = true),
 //            @Result(column = "user_name", property = "userName", jdbcType = JdbcType.VARCHAR),

@@ -1,15 +1,17 @@
 package com.weblatter.entity;
 
 
-public class Answers extends Inspect {
+public class Answers {
 
-    private String answer_id;
-    private String answer_user;
-    private java.sql.Date answer_time;
-    private long support_num;
-    private long objection_num;
-    private String question_id;
-    private String answer;
+  private String answer_id;
+  private String answer_user;
+  private java.sql.Date answer_time;
+  private long support_num;
+  private long objection_num;
+  private String question_id;
+  private String answer;
+  private String processing_status;
+  private String processing_id;
 
 
   public String getAnswer_id() {
@@ -72,6 +74,24 @@ public class Answers extends Inspect {
 
   public void setAnswer(String answer) {
     this.answer = answer;
+  }
+
+
+  public String getProcessing_status() {
+    return processing_status;
+  }
+
+  public void setProcessing_status(String processing_status) {
+    this.processing_status = processing_status;
+  }
+
+
+  public String getProcessing_id() {
+    return processing_id;
+  }
+
+  public void setProcessing_id(String processing_id) {
+    this.processing_id = processing_id;
   }
 
 }

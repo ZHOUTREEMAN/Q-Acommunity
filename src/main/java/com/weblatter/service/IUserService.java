@@ -3,11 +3,13 @@ package com.weblatter.service;
 import com.weblatter.entity.Questions;
 import com.weblatter.entity.UsersM;
 import com.weblatter.util.Information;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
 //information是王木辛写的工具类，在util里,自己可以增添工具类，尽量精简
+@Service
 public interface IUserService {
 
     /**

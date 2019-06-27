@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 @Mapper
 public interface Comment_answersDao {
-    @Select("SELECT * FROM comment_answers WHERE COMMENT_ID=#{comment_id}")
-    public CommentAnswer selectComment(String comment_id);
+    @Select("SELECT * FROM comment_answers WHERE ANSWER_ID=#{answer_id}")
+    public List<CommentAnswer> selectComment(String answer_id);
 
     @Select("Select * FROM comment_answers")
     public List<CommentAnswer> selectAllComments();

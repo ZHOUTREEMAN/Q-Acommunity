@@ -13,13 +13,16 @@ create table Questions
 ( question_id CHAR(5) PRIMARY KEY,
   user_id CHAR(8) ,
   question_time DATE NOT NULL,
-  question_status VARCHAR(20),
+  #question_status VARCHAR(20),#xiugai
   question VARCHAR(255) NOT NULL,
   complement VARCHAR(255),
   label_m VARCHAR(20),
   integral SMALLINT,
   answer_num SMALLINT,
   question_following_num INT,
+  processing_status VARCHAR(20),
+  processing_id CHAR(8),
+  FOREIGN KEY(processing_id) REFERENCES Workers(worker_id),
   FOREIGN KEY(user_id) REFERENCES Users_m(user_id)
 );
 
@@ -31,6 +34,9 @@ create table Answers
   objection_num SMALLINT,
   question_id CHAR(5),
   answer VARCHAR(255),
+  processing_status VARCHAR(20),
+  processing_id CHAR(8),
+  FOREIGN KEY(processing_id) REFERENCES Workers(worker_id),
   FOREIGN KEY(answer_user) REFERENCES Users_m(user_id),
   FOREIGN KEY(question_id) REFERENCES Questions(question_id)
 );
@@ -45,16 +51,16 @@ create table Workers
   email VARCHAR(50)
 );
 
-create table Messages
-( message_id CHAR(9) PRIMARY KEY,
-  processing_time DATE ,
-  publisher_id CHAR(8) ,
-  message_type VARCHAR(20),
-  processing_status VARCHAR(20),
-  processing_id CHAR(8),
-  FOREIGN KEY(publisher_id) REFERENCES Users_m(user_id),
-  FOREIGN KEY(processing_id) REFERENCES Workers(worker_id)
-);
+# create table Messages
+# ( message_id CHAR(9) PRIMARY KEY,
+#   processing_time DATE ,
+#   publisher_id CHAR(8) ,
+#   message_type VARCHAR(20),
+#   processing_status VARCHAR(20),
+#   processing_id CHAR(8),
+#   FOREIGN KEY(publisher_id) REFERENCES Users_m(user_id),
+#   FOREIGN KEY(processing_id) REFERENCES Workers(worker_id)
+# );
 
 create table Users_following
 ( follow VARCHAR(8),

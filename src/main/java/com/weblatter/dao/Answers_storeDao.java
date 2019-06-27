@@ -15,7 +15,7 @@ public interface Answers_storeDao {
     @Select("Select * FROM ANSWERSSTORE")
     public List<AnswersStore> selectAllStores();
 
-    @Insert("INSERT INTO ANSWERSSTORE VALUES(#{store_id},#{user_id},#{answer_id})")
+    @Insert("INSERT INTO ANSWERSSTORE VALUES(#{storeId},#{userId},#{answerId})")
     public void insertStores(AnswersStore stores);
 
     @Delete("DELETE FROM ANSWERSSTORE WHERE STORE_ID=#{storeId}")

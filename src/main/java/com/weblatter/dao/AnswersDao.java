@@ -25,6 +25,6 @@ public interface AnswersDao {
 
     @Update("UPDATE ANSWERS SET ANSWER_USER=#{answer_user}," +
             "ANSWER_TIME=#{answer_time},SUPPORT_NUM=#{support_num},OBJECTION_NUM=#{objection_num}," +
-            "ANSWER=#{answer}")
+            "ANSWER=#{answer} WHERE ANSWER_ID=#{answer_id} ")
     public void updateInformation(Answers answers);
 }

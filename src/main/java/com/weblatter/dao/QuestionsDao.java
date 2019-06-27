@@ -26,6 +26,6 @@ public interface QuestionsDao {
     @Update("UPDATE QUESTIONS SET "+
             "QUESTION_TIME=#{question_time},QUESTION_STATUS=#{question_status},QUESTION=#{question}," +
             "COMPLEMENT=#{complement},LABEL_M=#{label_m},INTEGRAL=#{integral},ANSWER_NUM=#{answer_num}," +
-            "QUESTION_FOLLOWING_NUM=#{question_following_num}")
+            "QUESTION_FOLLOWING_NUM=#{question_following_num} WHERE QUESTION_ID=#{question_id}")
     public void updateInformation(Questions questions);
 }

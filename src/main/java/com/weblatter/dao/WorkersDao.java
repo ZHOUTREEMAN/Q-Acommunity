@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 @Mapper
 public interface WorkersDao {
-    @Select("SELECT * FROM WORKERS WHERE WORKERS_ID=#{workers_id}")
+    @Select("SELECT * FROM WORKERS WHERE WORKERS_ID=#{worker_id}")
     public Workers selectWorker(String WorkerId);
 
     @Select("Select * FROM WORKER")
@@ -26,6 +26,6 @@ public interface WorkersDao {
     public void deleteWorkers(String workerId);
 
     @Update({"UPDATE WORKERS SET WORKER_NAME=#{worker_name}," +
-            "WORKER_AGE=#{worker_age},WORKER_PHONE_NUM=#{worker_phone_num},ID_NUMBERS=#{id_numbers},EMAIL=#{email}"})
+            "WORKER_AGE=#{worker_age},WORKER_PHONE_NUM=#{worker_phone_num},ID_NUMBERS=#{id_numbers},EMAIL=#{email} WHERE WORKER_ID=#{worker_id}"})
     public void updateInformation(Workers workers);
 }

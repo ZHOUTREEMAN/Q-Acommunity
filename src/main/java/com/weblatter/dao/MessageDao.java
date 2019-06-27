@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 @Mapper
 public interface MessageDao {
-    @Select("SELECT * FROM Messages WHERE message_id=#{messageId}")
-    public Messages selectMessageInformation(String messageId);
+    @Select("SELECT * FROM Messages WHERE message_id=#{message_id}")
+    public Messages selectMessageInformation(String message_id);
 
     @Select("Select * FROM Messages")
     public List<Messages> selectAllMessagesInformation();
@@ -18,9 +18,9 @@ public interface MessageDao {
     @Insert("INSERT INTO Messages VALUES(#{message_id}, #{processing_time}, #{publisher_id}, #{message_type}, #{processing_status}, #{processing_id})")
     public void insertNewMessage(Messages messages);
 
-    @Delete("DELETE FROM Messages WHERE message_id=#{messageId}")
-    public void deleteMessage(String messageId);
+    @Delete("DELETE FROM Messages WHERE message_id=#{message_id}")
+    public void deleteMessage(String message_id);
 
-    @Update("UPDATE Messages SET processing_status=#{processingStatus},processing_time=#{processingTime},processing_id=#{processingId} WHERE message_id=#{messageId}")
+    @Update("UPDATE Messages SET processing_status=#{processing_status},processing_time=#{processing_time},processing_id=#{processing_id} WHERE message_id=#{message_id}")
     public void updateMessage(Messages messages);
 }

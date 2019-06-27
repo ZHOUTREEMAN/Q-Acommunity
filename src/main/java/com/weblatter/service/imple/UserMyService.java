@@ -1,12 +1,7 @@
 package com.weblatter.service.imple;
 
-import com.weblatter.dao.AnswersDao;
-import com.weblatter.dao.Comment_answersDao;
-import com.weblatter.dao.QuestionsDao;
-import com.weblatter.dao.UsersDao;
-import com.weblatter.entity.Answers;
-import com.weblatter.entity.CommentAnswer;
-import com.weblatter.entity.Questions;
+import com.weblatter.dao.*;
+import com.weblatter.entity.*;
 import com.weblatter.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,18 +21,23 @@ public class UserMyService implements IUserService {
     private AnswersDao answersDao;
     @Autowired
     private Comment_answersDao comment_answersDao;
+    @Autowired
+    private Answers_storeDao answers_storeDao;
+    @Autowired
+    private Questions_followingDao questions_followingDao;
     private static double question_id_init=10000;
     private static double answer_id_init=100000;
+    private static double answerstore_id_init=100000;
     private Calendar calendar=Calendar.getInstance();
 
-    public void sendQuestion(String question,String complement, int score,String user_id) {
+    public void sendQuestion(String question,String complement, int score,String user_id,String label) {
         String question_id=String.valueOf(question_id_init);
         question_id_init++;
         Questions questions=new Questions();
         questions.setAnswer_num(0);
         questions.setComplement(complement);
         questions.setIntegral(score);
-        questions.setLabel_m("教育");
+        questions.setLabel_m(label);
         questions.setQuestion(question);
         questions.setQuestion_following_num(0);
         questions.setQuestion_id(question_id);
@@ -50,6 +50,8 @@ public class UserMyService implements IUserService {
 
     public int answerQuestion(String questionId, String userID,String answer) {
         Questions questions = questionsDao.selectQuestion(questionId);
+        UsersM usersM=usersDao.selectUsersInformation2(userID);
+        usersM.setIntegral(usersM.getIntegral()+questions.getIntegral());
 
         Answers answers = new Answers();
         answers.setAnswer(answer);
@@ -80,11 +82,18 @@ public class UserMyService implements IUserService {
     }
 
     public void store(String userId, String answerId) {
-
+        AnswersStore answersStore=new AnswersStore();
+        answersStore.setAnswerId(answerId);
+        answersStore.setStore_id(String.valueOf(answerstore_id_init++));
+        answersStore.setUser_id(userId);
+        answers_storeDao.insertStores(answersStore);
     }
 
     public void objectQuestion(String userId, String questionId) {
-
+        QuestionsFollowing questionsFollowing=new QuestionsFollowing();
+        questionsFollowing.setQuestion(questionId);
+        questionsFollowing.setUser_n(userId);
+        questions_followingDao.insertNewQuestionsFollowing(questionsFollowing);
     }
 
     public Map<Questions, String> hostpageQuestions(String userId) {

@@ -18,7 +18,7 @@ public interface IUserService {
      * @param score 悬赏积分
      * 注意自动生成Question的其他选项
      */
-    public void sendQuestion(String question,String complement, int score,String user_id);
+    public void sendQuestion(String question,String complement, int score,String user_id,String label);
 
     /**
      * 回答问题

@@ -24,12 +24,17 @@ public interface IPeopleService {
      * @param password
      * @return 修改是否成功，
      */
-    public Information<Boolean> updateUserInformation(String userName, String email, String password);
+    public Information<Boolean> updateUserInformation(String oldUserName, String userName, String email, String password);
 
     /**
      * 注销用户名服务
      * @param userName
      * @return 注销是否成功
      */
-    public Information<Boolean> deleteUserFromSystem(String userName);
+    public void deleteUserFromSystem(String userName);
+
+    /**
+     * 用户注册
+     */
+    public void UserRegister(UsersM usersM);
 }

@@ -13,6 +13,12 @@ public interface QuestionsDao {
     @Select("SELECT * FROM QUESTIONS WHERE QUESTION_ID=#{question_id}")
     public Questions selectQuestion(String question_id);
 
+    @Select("SELECT * FROM QUESTIONS WHERE processing_status='0'")//查找未审核的问题
+    public List<Questions> selectUndoQuestion();
+
+    @Select("SELECT * FROM QUESTIONS WHERE processing_status='1'")//查找已经审核的问题
+    public List<Questions> selectDoneQuestion();
+
     @Select("Select * FROM QUESTIONS")
     public List<Questions> selectAllQuestions();
 

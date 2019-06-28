@@ -75,13 +75,20 @@ public class UserMyService implements IUserService {
         comment_answersDao.insertComments(commentAnswer);
     }
 
-    public void support(String answerId) {
+    public void support(String answerId) {//点赞
         Answers answers = answersDao.selectByAnswerId(answerId);
         answers.setSupport_num(answers.getSupport_num()+1);
         answersDao.updateInformation(answers);
     }
 
-    public void store(String userId, String answerId) {
+    public void object(String answerId){
+        Answers answers=answersDao.selectByAnswerId(answerId);
+        answers.setObjection_num(answers.getObjection_num()+1);
+        answersDao.updateInformation(answers);
+    }
+
+
+    public void store(String userId, String answerId) {//收藏回答
         AnswersStore answersStore=new AnswersStore();
         answersStore.setAnswerId(answerId);
         answersStore.setStore_id(String.valueOf(answerstore_id_init++));
@@ -89,7 +96,7 @@ public class UserMyService implements IUserService {
         answers_storeDao.insertStores(answersStore);
     }
 
-    public void objectQuestion(String userId, String questionId) {
+    public void objectQuestion(String userId, String questionId) {//收藏问题
         QuestionsFollowing questionsFollowing=new QuestionsFollowing();
         questionsFollowing.setQuestion(questionId);
         questionsFollowing.setUser_n(userId);

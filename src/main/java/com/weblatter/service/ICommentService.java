@@ -1,5 +1,7 @@
 package com.weblatter.service;
 
+import com.weblatter.entity.CommentAnswer;
+
 import java.util.List;
 
 public interface ICommentService {

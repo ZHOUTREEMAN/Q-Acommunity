@@ -26,12 +26,12 @@ public class UserMyService implements IUserService {
     @Autowired
     private Questions_followingDao questions_followingDao;
     private static double question_id_init=10000;
-    private static double answer_id_init=100000;
-    private static double answerstore_id_init=100000;
+    private static long answer_id_init=100000;
+    private static long answerstore_id_init=100000;
     private Calendar calendar=Calendar.getInstance();
 
     public void sendQuestion(String question,String complement, int score,String user_id,String label) {
-        String question_id=String.valueOf(question_id_init);
+        String question_id=String.valueOf((long)question_id_init);
         question_id_init++;
         Questions questions=new Questions();
         questions.setAnswer_num(0);

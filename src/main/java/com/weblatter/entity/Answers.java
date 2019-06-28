@@ -46,8 +46,8 @@ public class Answers extends  Inspect {
     return support_num;
   }
 
-  public void setSupportNum(long supportNum) {
-    this.support_num = supportNum;
+  public void setSupportNum(long support_num) {
+    this.support_num = support_num;
   }
 
 

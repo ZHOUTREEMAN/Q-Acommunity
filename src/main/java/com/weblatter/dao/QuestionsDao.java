@@ -16,8 +16,8 @@ public interface QuestionsDao {
     @Select("SELECT * FROM QUESTIONS WHERE processing_status='0'")//查找未审核的问题
     public List<Questions> selectUndoQuestion();
 
-    @Select("SELECT * FROM QUESTIONS WHERE processing_status='1'")//查找已经审核的问题
-    public List<Questions> selectDoneQuestion();
+    @Select("SELECT * FROM QUESTIONS WHERE processing_status='1' and processing_id=#{workId}")//查找已经审核的问题
+    public List<Questions> selectDoneQuestion(String workId);
 
     @Select("Select * FROM QUESTIONS")
     public List<Questions> selectAllQuestions();
@@ -26,7 +26,7 @@ public interface QuestionsDao {
             " #{complement},#{suggestion},#{label_m},#{integral},#{answer_num},#{question_following_num},#{processing_status},#{processing_id})")
     public void insertQuestions(Questions questions);
 
-    @Delete("DELETE FROM QUESTIONS WHERE QUESTION_ID=#{question_id}")
+    @Delete("DELETE FROM QUESTIONS WHERE QUESTION_ID=#{question_id} ")
     public void deleteQuestion(String question_id);
 
     @Update("UPDATE QUESTIONS SET "+

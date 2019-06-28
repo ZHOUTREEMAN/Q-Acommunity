@@ -10,18 +10,21 @@ import com.weblatter.service.IManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ManagerService implements IManagerService {
     @Autowired
     WorkersDao  workersDao;
+    @Autowired
     AnswersDao answersDao;
+    @Autowired
     QuestionsDao questionsDao;
-    public List<Inspect> managerPageShow(String managerId) {
+    public List<Inspect> managerPageShow( ) {
         List<Questions> result1 =questionsDao.selectUndoQuestion();
         List<Answers> result2=answersDao.selectUndoAnswer();
-        List<Inspect> result=null;
+        List<Inspect> result=new ArrayList<Inspect>();
         for(int i=0;i<result1.size();i++)
         {
             result.add(result1.get(i));
@@ -34,35 +37,42 @@ public class ManagerService implements IManagerService {
     }
 
     public void managerInspect(String answerAndQuestionId, String userId, boolean isPass, String suggestion) {
-        //暂时不知道修改意见怎么处理？？
         if(answerAndQuestionId.length()==5)//问题
         {
+            Questions questions;
+            questions=questionsDao.selectQuestion(answerAndQuestionId);
             if (isPass)
-                questionsDao.selectQuestion(answerAndQuestionId).setProcessing_status("1");
+                questions.setProcessing_status("1");
             else
-                questionsDao.selectQuestion(answerAndQuestionId).setProcessing_status("0");
-            questionsDao.selectQuestion(answerAndQuestionId).setProcessing_id(userId);
-            questionsDao.selectQuestion(answerAndQuestionId).setSuggestion(suggestion);
-            questionsDao.updateInformation(questionsDao.selectQuestion(answerAndQuestionId));
+                questions.setProcessing_status("0");
+                questions.setProcessing_id(userId);
+                questions.setSuggestion(suggestion);
+                questionsDao.updateInformation(questions);
         }
         else //回答
         {
+            Answers answers;
+            answers=answersDao.selectByAnswerId(answerAndQuestionId);
             if(isPass)
-                answersDao.selectByAnswerId(answerAndQuestionId).setProcessing_id("1");
+            {
+                answers.setProcessing_status("1");
+            }
             else
-                answersDao.selectByAnswerId(answerAndQuestionId).setProcessing_id("0");
-            answersDao.selectByAnswerId(answerAndQuestionId).setProcessing_id(userId);
-            answersDao.selectByAnswerId(answerAndQuestionId).setSuggestion(suggestion);
-            answersDao.updateInformation(answersDao.selectByAnswerId(answerAndQuestionId));
+            {
+                answers.setProcessing_status("0");
+            }
+                answers.setProcessing_id(userId);
+                answers.setSuggestion(suggestion);
+                answersDao.updateInformation(answers);
         }
     }
 
     public List<Questions> showAllInspectedQuestions(String userId) {
 
-        return questionsDao.selectDoneQuestion();
+        return questionsDao.selectDoneQuestion(userId);
     }
 
     public List<Answers> showAllInspectAnswers(String userId) {
-        return answersDao.selectDoneAnswer();
+        return answersDao.selectDoneAnswer(userId);
     }
 }

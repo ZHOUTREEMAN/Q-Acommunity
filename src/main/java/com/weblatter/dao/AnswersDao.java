@@ -19,8 +19,8 @@ public interface AnswersDao {
     @Select("SELECT * FROM ANSWERS WHERE processing_status='0'")
     public  List<Answers> selectUndoAnswer( );
 
-    @Select("SELECT * FROM ANSWERS WHERE processing_status='1'")
-    public  List<Answers> selectDoneAnswer( );
+    @Select("SELECT * FROM ANSWERS WHERE processing_status='1' and processing_id=#{workId}")
+    public  List<Answers> selectDoneAnswer(String workId );
 
     @Select("Select * FROM ANSWERS")
     public List<Answers> selectAllAnswers();

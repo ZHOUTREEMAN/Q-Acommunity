@@ -95,6 +95,18 @@ create table comment_answers/*需要修改*/
 comment_id varchar(20) primary key,
 comment varchar (255),
 answer_id VARCHAR(20),
-FOREIGN KEY(answer_id) REFERENCES answers(answer_id)
+User_id varchar(20),
+FOREIGN KEY(answer_id) REFERENCES answers(answer_id),
+FOREIGN KEY(user_id) REFERENCES Users_m(user_id)
 );
+
+create table id_directory/*充当生成唯一性id的累加容器*/
+(
+    user_id CHAR(8),
+    worker_id CHAR(8),
+    question_id CHAR(5),
+    answer_id CHAR(6),
+    comment_id varchar(20),
+    Store_id varchar(20)
+)
 

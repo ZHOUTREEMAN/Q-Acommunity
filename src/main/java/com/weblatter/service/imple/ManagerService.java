@@ -42,6 +42,8 @@ public class ManagerService implements IManagerService {
             else
                 questionsDao.selectQuestion(answerAndQuestionId).setProcessing_status("0");
             questionsDao.selectQuestion(answerAndQuestionId).setProcessing_id(userId);
+            questionsDao.selectQuestion(answerAndQuestionId).setSuggestion(suggestion);
+            questionsDao.updateInformation(questionsDao.selectQuestion(answerAndQuestionId));
         }
         else //回答
         {
@@ -50,6 +52,8 @@ public class ManagerService implements IManagerService {
             else
                 answersDao.selectByAnswerId(answerAndQuestionId).setProcessing_id("0");
             answersDao.selectByAnswerId(answerAndQuestionId).setProcessing_id(userId);
+            answersDao.selectByAnswerId(answerAndQuestionId).setSuggestion(suggestion);
+            answersDao.updateInformation(answersDao.selectByAnswerId(answerAndQuestionId));
         }
     }
 

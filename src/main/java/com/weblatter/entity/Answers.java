@@ -1,7 +1,7 @@
 package com.weblatter.entity;
 
 
-public class Answers extends Inspect {
+public class Answers {
 
   private String answer_id;
   private String answer_user;
@@ -10,6 +10,7 @@ public class Answers extends Inspect {
   private long objection_num;
   private String question_id;
   private String answer;
+  private String suggestion;
   private String processing_status;
   private String processing_id;
 
@@ -41,12 +42,12 @@ public class Answers extends Inspect {
   }
 
 
-  public long getSupport_num() {
+  public long getSupportNum() {
     return support_num;
   }
 
-  public void setSupport_num(long support_num) {
-    this.support_num = support_num;
+  public void setSupportNum(long supportNum) {
+    this.support_num = supportNum;
   }
 
 
@@ -74,6 +75,15 @@ public class Answers extends Inspect {
 
   public void setAnswer(String answer) {
     this.answer = answer;
+  }
+
+
+  public String getSuggestion() {
+    return suggestion;
+  }
+
+  public void setSuggestion(String suggestion) {
+    this.suggestion = suggestion;
   }
 
 

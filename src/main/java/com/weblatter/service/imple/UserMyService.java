@@ -28,11 +28,12 @@ public class UserMyService implements IUserService {
     private static double question_id_init=10000;
     private static long answer_id_init=100000;
     private static long answerstore_id_init=100000;
-    private Calendar calendar=Calendar.getInstance();
+    private Calendar calendar;
 
     public void sendQuestion(String question,String complement, int score,String user_id,String label) {
         String question_id=String.valueOf((long)question_id_init);
         question_id_init++;
+        calendar=Calendar.getInstance();
         Questions questions=new Questions();
         questions.setAnswer_num(0);
         questions.setComplement(complement);
@@ -42,7 +43,8 @@ public class UserMyService implements IUserService {
         questions.setQuestion_following_num(0);
         questions.setQuestion_id(question_id);
         questions.setProcessing_status("0");//未审核
-        questions.setQuestion_time(new Date(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE)));
+
+        questions.setQuestion_time(new Date(calendar.get(Calendar.YEAR)-1900, calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE)+1));
         questions.setUser_id(user_id);
         questions.setProcessing_id(null);
         questionsDao.insertQuestions(questions);
@@ -56,7 +58,7 @@ public class UserMyService implements IUserService {
         Answers answers = new Answers();
         answers.setAnswer(answer);
         answers.setAnswer_id(String.valueOf(answer_id_init++));
-        answers.setAnswer_time(new Date(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE)));
+        answers.setAnswer_time(new Date(calendar.get(Calendar.YEAR)-1900, calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE)+1));
         answers.setAnswer_user(userID);
         answers.setObjection_num(0);
         answers.setProcessing_id(null);

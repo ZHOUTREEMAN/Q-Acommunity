@@ -28,4 +28,19 @@ public class UserServiceTest extends ApplicationTests {
     public void storeAnswerTest(){
         userMyService.storeAnswer("00000001","100000");
     }
+
+    @Test
+    public void storeQuestionTese(){
+        userMyService.storeQuestion("00000002","00002");
+    }
+
+    @Test
+    public void objectTest(){
+        userMyService.object("000001");
+    }
+
+    @Test
+    public void commentAnswerTest(){
+        userMyService.commentAnswer("000001","00000002", "的确是这样");
+    }
 }

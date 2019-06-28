@@ -38,6 +38,8 @@ INSERT INTO Subjects_store_questions VALUES('00001','00001');
 INSERT INTO Subjects_store_questions VALUES('00002','00002');
 INSERT INTO Subjects_store_questions VALUES('00003','00002');
 #答案下的评论
-INSERT INTO comment_answers VALUES('0000003','回答不错','000001','00000001');
-INSERT INTO comment_answers VALUES('0000004','答主牛逼','000002','00000002');
-INSERT INTO comment_answers VALUES('0000005','收藏了','000003','00000003');
+INSERT INTO comment_answers VALUES('0000001','回答不错','000001','00000001');
+INSERT INTO comment_answers VALUES('0000002','答主牛逼','000002','00000002');
+INSERT INTO comment_answers VALUES('0000003','收藏了','000003','00000003');
+#初始的id
+INSERT INTO id_directory VALUES ('10000000','10000000','10000','100000','1000000','1000');

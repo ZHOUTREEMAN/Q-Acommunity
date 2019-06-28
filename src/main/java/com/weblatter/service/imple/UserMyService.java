@@ -62,7 +62,7 @@ public class UserMyService implements IUserService {
         answers.setProcessing_id(null);
         answers.setProcessing_status("0");
         answers.setQuestion_id(questionId);
-        answers.setSupport_num(0);
+        answers.setSupportNum(0);
         answersDao.insertQuestions(answers);
         return 0;
     }
@@ -77,7 +77,7 @@ public class UserMyService implements IUserService {
 
     public void support(String answerId) {//点赞
         Answers answers = answersDao.selectByAnswerId(answerId);
-        answers.setSupport_num(answers.getSupport_num()+1);
+        answers.setSupportNum(answers.getSupportNum()+1);
         answersDao.updateInformation(answers);
     }
 

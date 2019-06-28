@@ -25,6 +25,7 @@ create table Questions
   #question_status VARCHAR(20),#xiugai
   question VARCHAR(255) NOT NULL,
   complement VARCHAR(255),
+  suggestion VARCHAR(255),#管理员给的修改建议
   label_m VARCHAR(20),
   integral SMALLINT,
   answer_num SMALLINT,
@@ -43,6 +44,7 @@ create table Answers
   objection_num SMALLINT,
   question_id CHAR(5),
   answer VARCHAR(255),
+  suggestion VARCHAR(255),#管理员给的修改建议
   processing_status VARCHAR(20),
   processing_id CHAR(8),
   FOREIGN KEY(processing_id) REFERENCES Workers(worker_id),

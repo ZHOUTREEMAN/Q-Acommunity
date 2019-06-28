@@ -88,7 +88,7 @@ public class UserMyService implements IUserService {
     }
 
 
-    public void store(String userId, String answerId) {//收藏回答
+    public void storeAnswer(String userId, String answerId) {//收藏回答
         AnswersStore answersStore=new AnswersStore();
         answersStore.setAnswerId(answerId);
         answersStore.setStore_id(String.valueOf(answerstore_id_init++));
@@ -96,7 +96,7 @@ public class UserMyService implements IUserService {
         answers_storeDao.insertStores(answersStore);
     }
 
-    public void objectQuestion(String userId, String questionId) {//收藏问题
+    public void storeQuestion(String userId, String questionId) {//收藏问题
         QuestionsFollowing questionsFollowing=new QuestionsFollowing();
         questionsFollowing.setQuestion(questionId);
         questionsFollowing.setUser_n(userId);

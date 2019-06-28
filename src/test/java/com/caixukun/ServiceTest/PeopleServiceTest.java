@@ -12,7 +12,7 @@ public class PeopleServiceTest extends ApplicationTests {
 
     @Test
     public void updateTest(){
-        Information<?>information = peopleService.updateUserInformation("wangzi", "wangzi", "323@qq.com", "3423243234");
+        Information<?> information = peopleService.updateUserInformation("wangzi", "wangzi", "323@qq.com", "3423243234");
         System.out.println(information.getTip());
     }
 }

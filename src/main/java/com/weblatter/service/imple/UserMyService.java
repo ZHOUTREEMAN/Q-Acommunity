@@ -3,13 +3,11 @@ package com.weblatter.service.imple;
 import com.weblatter.dao.*;
 import com.weblatter.entity.*;
 import com.weblatter.service.IUserService;
-import javafx.scene.text.TextAlignment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -27,7 +25,7 @@ public class UserMyService implements IUserService {
     @Autowired
     private Questions_followingDao questions_followingDao;
     @Autowired
-    private static CreateIdDao createIdDao;
+    private CreateIdDao createIdDao;
     //private static double question_id_init=10000;
 //    private static long answer_id_init=100000;
 //    private static long answerstore_id_init=100000;
@@ -57,7 +55,7 @@ public class UserMyService implements IUserService {
         Questions questions = questionsDao.selectQuestion(questionId);
         UsersM usersM=usersDao.selectUsersInformation2(userID);
         usersM.setIntegral(usersM.getIntegral()+questions.getIntegral());
-
+        calendar=Calendar.getInstance();
         Answers answers = new Answers();
         answers.setAnswer(answer);
         answers.setAnswer_id(getId("answer_id"));
@@ -76,7 +74,7 @@ public class UserMyService implements IUserService {
         CommentAnswer commentAnswer=new CommentAnswer();
         commentAnswer.setAnswer_id(answerId);
         commentAnswer.setComment(comment);
-        commentAnswer.setComment_id(userId);
+        commentAnswer.setUser_id(userId);
         commentAnswer.setComment_id(getId("comment_id"));
         comment_answersDao.insertComments(commentAnswer);
     }
@@ -96,7 +94,7 @@ public class UserMyService implements IUserService {
 
     public void storeAnswer(String userId, String answerId) {//收藏回答
         AnswersStore answersStore=new AnswersStore();
-        answersStore.setAnswerId(answerId);
+        answersStore.setAnswer_id(answerId);
         answersStore.setStore_id(getId("store_id"));
         answersStore.setUser_id(userId);
         answers_storeDao.insertStores(answersStore);
@@ -113,36 +111,39 @@ public class UserMyService implements IUserService {
         return null;
     }
 
-    public static String getId(String table){
-        IdDirectory idDirectory = createIdDao.selectIdDirectory();
+    public String getId(String table){
+        IdDirectory idDirectory = createIdDao.selectIdDirectory("1000");
+        if(idDirectory==null){
+            System.out.println("test");
+        }
         if(table.equals("question_id")){
-            String string=String.valueOf(Integer.parseInt(idDirectory.getQuestionId())+1);
-            idDirectory.setQuestionId(string);
+            String string=String.valueOf(Integer.parseInt(idDirectory.getQuestion_id())+1);
+            idDirectory.setQuestion_id(string);
             createIdDao.updateInformation(idDirectory);
             return string;
         }else if(table.equals("answer_id")){
-            String string=String.valueOf(Integer.parseInt(idDirectory.getAnswerId())+1);
-            idDirectory.setAnswerId(string);
+            String string=String.valueOf(Integer.parseInt(idDirectory.getAnswer_id())+1);
+            idDirectory.setAnswer_id(string);
             createIdDao.updateInformation(idDirectory);
             return string;
         }else if(table.equals("comment_id")){
-            String string=String.valueOf(Integer.parseInt(idDirectory.getCommentId())+1);
-            idDirectory.setCommentId(string);
+            String string=String.valueOf(Integer.parseInt(idDirectory.getComment_id())+1);
+            idDirectory.setComment_id(string);
             createIdDao.updateInformation(idDirectory);
             return string;
         }else if(table.equals("store_id")){
-            String string=String.valueOf(Integer.parseInt(idDirectory.getStoreId())+1);
-            idDirectory.setStoreId(string);
+            String string=String.valueOf(Integer.parseInt(idDirectory.getStore_id())+1);
+            idDirectory.setStore_id(string);
             createIdDao.updateInformation(idDirectory);
             return string;
         }else if(table.equals("user_id")){
-            String string=String.valueOf(Integer.parseInt(idDirectory.getUserId())+1);
-            idDirectory.setUserId(string);
+            String string=String.valueOf(Integer.parseInt(idDirectory.getUser_id())+1);
+            idDirectory.setUser_id(string);
             createIdDao.updateInformation(idDirectory);
             return string;
         }else if(table.equals("worker_id")){
-            String string=String.valueOf(Integer.parseInt(idDirectory.getWorkerId())+1);
-            idDirectory.setWorkerId(string);
+            String string=String.valueOf(Integer.parseInt(idDirectory.getWorker_id())+1);
+            idDirectory.setWorker_id(string);
             createIdDao.updateInformation(idDirectory);
             return string;
         }

@@ -48,14 +48,14 @@ public interface IUserService {
      * @param userId
      * @param answerId
      */
-    public void store(String userId, String answerId);
+    public void storeAnswer(String userId, String answerId);
 
     /**
      * 关注
      * @param userId
      * @param questionId
      */
-    public void objectQuestion(String userId, String questionId);
+    public void storeQuestion(String userId, String questionId);
 
     /**
      * 用户主页的问题,先匹配关注的问题，再匹配推荐的问题

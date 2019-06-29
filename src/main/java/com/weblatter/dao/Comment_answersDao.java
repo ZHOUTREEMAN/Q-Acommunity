@@ -22,6 +22,6 @@ public interface Comment_answersDao {
     public void deleteComment(String comment_id);
 
     @Update("UPDATE comment_answers SET "+
-            "COMMENT=#{comment},ANSWER_ID=#{answer_id} WHERE COMMENT_ID=#{comment_id}")
+            "COMMENT=#{comment},ANSWER_ID=#{answer_id},user_id=#{user_id} WHERE COMMENT_ID=#{comment_id}")
     public void updateInformation(CommentAnswer commentAnswer);
 }

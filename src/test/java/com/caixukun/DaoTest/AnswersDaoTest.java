@@ -24,7 +24,7 @@ public class AnswersDaoTest extends ApplicationTests {
         answers.setAnswer_time(new Date(1, 1, 23));
         answers.setAnswer_user("00000001");
         answers.setQuestion_id("00001");
-        answers.setSupport_num(12);
+        answers.setSupportNum(12);
         answers.setObjection_num(1);
 
         answersDao.insertQuestions(answers);
@@ -51,7 +51,7 @@ public class AnswersDaoTest extends ApplicationTests {
         answers.setAnswer_time(new Date(1, 1, 23));
         answers.setAnswer_user("00000001");
         answers.setQuestion_id("00001");
-        answers.setSupport_num(12);
+        answers.setSupportNum(12);
         answers.setObjection_num(1);
 
         answersDao.updateInformation(answers);

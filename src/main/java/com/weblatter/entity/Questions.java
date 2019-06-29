@@ -1,13 +1,13 @@
 package com.weblatter.entity;
 
-
-public class Questions extends Inspect{
+public class Questions extends Inspect {
 
   private String question_id;
   private String user_id;
   private java.sql.Date question_time;
   private String question;
   private String complement;
+  private String suggestion;
   private String label_m;
   private long integral;
   private long answer_num;
@@ -58,6 +58,15 @@ public class Questions extends Inspect{
 
   public void setComplement(String complement) {
     this.complement = complement;
+  }
+
+
+  public String getSuggestion() {
+    return suggestion;
+  }
+
+  public void setSuggestion(String suggestion) {
+    this.suggestion = suggestion;
   }
 
 

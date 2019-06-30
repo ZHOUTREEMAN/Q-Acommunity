@@ -17,7 +17,7 @@ public class PeopleService implements IPeopleService {
         UsersM usersM = usersDao.selectUsersInformation(userName);
         if(usersM == null)
             return new Information<UsersM>("用户不存在", null);
-        else if(usersM.getPassword() != password)
+        else if(!usersM.getPassword().equals(password))
             return new Information<UsersM>("密码不正确", null);
         else
             return new Information<UsersM>("登录成功", usersM);
@@ -50,7 +50,15 @@ public class PeopleService implements IPeopleService {
         usersDao.deleteUser(userName);
     }
 
-    public void UserRegister(UsersM usersM){
-        usersDao.insertNewUser(usersM);
+    public void UserRegister(String userName,String password) {
+       UsersM usersM = new UsersM();
+       int number = usersDao.selectAllUsersInformation().size();
+       number++;
+       usersM.setUser_id(String.valueOf(number));
+       usersM.setUserName(userName);
+       usersM.setPassword(password);
+       usersM.setFans_num(0);
+       usersM.setFollowers_num(0);
+       usersDao.insertNewUser(usersM);
     }
 }

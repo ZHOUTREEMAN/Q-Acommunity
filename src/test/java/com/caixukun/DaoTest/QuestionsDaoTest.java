@@ -24,7 +24,7 @@ public class QuestionsDaoTest extends ApplicationTests {
         questions.setQuestion("高考难吗？");
         questions.setQuestion_following_num(10);
         questions.setQuestion_id("00004");
-        questions.setQuestion_status("已回答");
+        //questions.setQuestion_status("已回答");
         questions.setQuestion_time(new Date(2019, 0, 1));
         questions.setUser_id("00000003");
         questionsDao.insertQuestions(questions);
@@ -51,7 +51,7 @@ public class QuestionsDaoTest extends ApplicationTests {
         questions.setLabel_m("高考");
         questions.setQuestion("高考难吗？");
         questions.setQuestion_following_num(10);
-        questions.setQuestion_status("已回答");
+        //questions.setQuestion_status("已回答");
         questions.setQuestion_time(new Date(2019, 0, 1));
 
         questionsDao.updateInformation(questions);

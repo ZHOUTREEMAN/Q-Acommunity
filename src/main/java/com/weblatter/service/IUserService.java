@@ -5,6 +5,7 @@ import com.weblatter.entity.UsersM;
 import com.weblatter.util.Information;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public interface IUserService {
      * @param score 悬赏积分
      * 注意自动生成Question的其他选项
      */
-    public void sendQuestion(String question,String complement, int score,String user_id);
+    public void sendQuestion(String question,String complement, int score,String user_id,String label);
 
     /**
      * 回答问题
@@ -27,7 +28,7 @@ public interface IUserService {
      * 通过两个参数自动生成问题其他信息，注意积分的变化
      */
 
-    public int answerQuestion(String questionId, String userID);
+    public int answerQuestion(String questionId, String userID,String answer) throws IOException;
 
     /**
      * 评论
@@ -35,7 +36,7 @@ public interface IUserService {
      * @param userId
      * @return 更新用户积分
      */
-    public void commentAnswer(String answerId, String userId);
+    public void commentAnswer(String answerId, String userId,String comment);
 
     /**
      * 点赞
@@ -48,14 +49,14 @@ public interface IUserService {
      * @param userId
      * @param answerId
      */
-    public void store(String userId, String answerId);
+    public void storeAnswer(String userId, String answerId);
 
     /**
      * 关注
      * @param userId
      * @param questionId
      */
-    public void objectQuestion(String userId, String questionId);
+    public void storeQuestion(String userId, String questionId);
 
     /**
      * 用户主页的问题,先匹配关注的问题，再匹配推荐的问题

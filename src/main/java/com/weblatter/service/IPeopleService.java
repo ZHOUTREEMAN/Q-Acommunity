@@ -36,5 +36,5 @@ public interface IPeopleService {
     /**
      * 用户注册
      */
-    public void UserRegister(UsersM usersM);
+    public void UserRegister(String userName, String password);
 }

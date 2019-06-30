@@ -9,10 +9,9 @@ import java.util.List;
 public interface IManagerService {
     /**
      * 管理员审核界面
-     * @param managerId
      * @return待审核的问题或回答
      */
-    public List<Inspect> managerPageShow(String managerId);
+    public List<Inspect> managerPageShow( );
 
     /**
      * 审核后让用户如何接收这个还没有考虑

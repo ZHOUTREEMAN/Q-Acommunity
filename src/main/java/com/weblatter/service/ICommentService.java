@@ -11,5 +11,5 @@ public interface ICommentService {
      * @param answerId
      * @return 评论列表
      */
-    public List<CommentAnswer>getCommentsList(String answerId);
+    public List<CommentAnswer> getCommentsList(String answerId);
 }

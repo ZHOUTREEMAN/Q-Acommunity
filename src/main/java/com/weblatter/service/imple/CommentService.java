@@ -13,7 +13,7 @@ public class CommentService implements ICommentService {
     @Autowired
     Comment_answersDao commentAnswersDao;
     public List<CommentAnswer> getCommentsList(String answerId) {
-        List <CommentAnswer> commentAnswers=commentAnswersDao.selectComment(answerId);
+        List<CommentAnswer> commentAnswers=commentAnswersDao.selectComment(answerId);
         return commentAnswers;
     }
 }

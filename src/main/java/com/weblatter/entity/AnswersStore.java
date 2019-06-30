@@ -5,7 +5,7 @@ public class AnswersStore {
 
   private String store_id;
   private String user_id;
-  private String answerId;
+  private String answer_id;
 
 
   public String getStore_id() {
@@ -26,12 +26,12 @@ public class AnswersStore {
   }
 
 
-  public String getAnswerId() {
-    return answerId;
+  public String getAnswer_id() {
+    return answer_id;
   }
 
-  public void setAnswerId(String answerId) {
-    this.answerId = answerId;
+  public void setAnswer_id(String answer_id) {
+    this.answer_id = answer_id;
   }
 
 }

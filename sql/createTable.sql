@@ -107,6 +107,6 @@ create table id_directory/*充当生成唯一性id的累加容器*/
     question_id CHAR(5),
     answer_id CHAR(6),
     comment_id varchar(20),
-    Store_id varchar(20)
+    store_id varchar(20)
 )
 

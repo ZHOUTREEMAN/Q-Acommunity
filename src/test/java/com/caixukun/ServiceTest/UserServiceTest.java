@@ -23,12 +23,12 @@ public class UserServiceTest extends ApplicationTests {
 
     @Test
     public void supportTest(){
-        userMyService.support("100000");
+        userMyService.support("000001");
     }
 
     @Test
     public void storeAnswerTest(){
-        userMyService.storeAnswer("00000001","100000");
+        userMyService.storeAnswer("00000001","000001");
     }
 
     @Test

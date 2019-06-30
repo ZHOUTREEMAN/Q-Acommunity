@@ -5,6 +5,8 @@ import com.weblatter.service.imple.UserMyService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.IOException;
+
 public class UserServiceTest extends ApplicationTests {
     @Autowired
     private UserMyService userMyService;
@@ -15,8 +17,8 @@ public class UserServiceTest extends ApplicationTests {
     }
 
     @Test
-    public void answerQuestionTest(){
-        userMyService.answerQuestion("00001","00000002","周林辉帅！");
+    public void answerQuestionTest() throws IOException {
+        userMyService.answerQuestion("00001","00000001","周林辉帅！");
     }
 
     @Test

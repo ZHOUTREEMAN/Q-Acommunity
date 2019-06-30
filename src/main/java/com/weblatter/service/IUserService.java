@@ -5,6 +5,7 @@ import com.weblatter.entity.UsersM;
 import com.weblatter.util.Information;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +28,7 @@ public interface IUserService {
      * 通过两个参数自动生成问题其他信息，注意积分的变化
      */
 
-    public int answerQuestion(String questionId, String userID,String answer);
+    public int answerQuestion(String questionId, String userID,String answer) throws IOException;
 
     /**
      * 评论

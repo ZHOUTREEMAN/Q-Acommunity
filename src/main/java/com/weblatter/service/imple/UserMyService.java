@@ -3,13 +3,13 @@ package com.weblatter.service.imple;
 import com.weblatter.dao.*;
 import com.weblatter.entity.*;
 import com.weblatter.service.IUserService;
-import javafx.scene.text.TextAlignment;
+import com.weblatter.util.FileURL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.*;
 import java.sql.Date;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -53,21 +53,27 @@ public class UserMyService implements IUserService {
         questionsDao.insertQuestions(questions);
     }
 
-    public int answerQuestion(String questionId, String userID,String answer) {
+    public int answerQuestion(String questionId, String userID,String answer) throws IOException{
         Questions questions = questionsDao.selectQuestion(questionId);
         UsersM usersM=usersDao.selectUsersInformation2(userID);
         usersM.setIntegral(usersM.getIntegral()+questions.getIntegral());
 
         Answers answers = new Answers();
-        answers.setAnswer(answer);
-        answers.setAnswer_id(getId("answer_id"));
-        answers.setAnswer_time(new Date(calendar.get(Calendar.YEAR)-1900, calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE)+1));
+        int num = answersDao.selectAllAnswers().size();
+        num++;
+        answers.setAnswer_id(String.valueOf(num));
+        answers.setAnswer_time(new Date(new java.util.Date().getTime()));
         answers.setAnswer_user(userID);
         answers.setObjection_num(0);
         answers.setProcessing_id(null);
         answers.setProcessing_status("0");
         answers.setQuestion_id(questionId);
         answers.setSupportNum(0);
+        answers.setAnswer(FileURL.answersPath + answers.getAnswer_id() + ".txt");
+        File file = new File(answers.getAnswer());
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+        bufferedWriter.write(answer);
+        bufferedWriter.close();
         answersDao.insertQuestions(answers);
         return 0;
     }

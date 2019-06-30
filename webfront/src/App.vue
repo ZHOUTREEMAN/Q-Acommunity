@@ -1,8 +1,5 @@
 <template>
-  <div id="app">
-    <el-button v-on:click="openDialog">打开测试</el-button>
-    <publish-issues v-if="isOpenDialog" v-bind:visible="isOpenDialog"></publish-issues>
-  </div>
+  <note-area></note-area>
 </template>
 
 <script>
@@ -12,9 +9,12 @@ import HotList from "./components/HotList";
 import QuestionDetail from "./components/QuestionDetailHeader";
 import Answer from "./components/Answer";
 import PublishIssues from "./components/PublishIssues";
+import Login from "./components/login";
+import Register from "./components/register";
+import Header from './components/header'
 export default {
   name: 'App',
-  components: {PublishIssues, Answer, HotList, PictureUpload, NoteArea,QuestionDetail},
+  components: {Register, Login, PublishIssues, Answer, HotList, PictureUpload, NoteArea,QuestionDetail, Header},
   data(){
     return{
       isOpenDialog: false

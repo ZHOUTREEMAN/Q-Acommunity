@@ -64,6 +64,7 @@ public interface IUserService {
      * @return 这个返回要注意，返回的是问题和问题相应的图片的url,尽量搜索图片,如果没有图片返回空值
      */
     public Map<Questions, String> hostpageQuestions(String userId);
+
     /**
     * @Description:  更新用户信息
     * @Param: [user_id, name, personal_profile, email, password]

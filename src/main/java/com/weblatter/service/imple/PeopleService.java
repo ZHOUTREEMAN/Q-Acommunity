@@ -10,6 +10,9 @@ import com.weblatter.util.Information;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class PeopleService implements IPeopleService {
 
@@ -20,6 +23,15 @@ public class PeopleService implements IPeopleService {
     @Autowired
     BanTalk_Dao banTalk_dao;
 
+    public List<UsersM>selectAllUsers(){
+        List<UsersM>users = usersDao.selectAllUsersInformation();
+        List<UsersM>users_res = new ArrayList<UsersM>();
+        for(UsersM usersM : users){
+            if(usersM.getIntegral() == 0)
+                users_res.add(usersM);
+        }
+        return users_res;
+    }
     public Information<UsersM> validateSignIn(String userName, String password) {
         UsersM usersM = usersDao.selectUsersInformation(userName);
         if(usersM == null)

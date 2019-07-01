@@ -32,8 +32,8 @@ create table Questions
   question_following_num INT,
   processing_status VARCHAR(20),
   processing_id CHAR(8),
-  FOREIGN KEY(processing_id) REFERENCES Workers(worker_id),
-  FOREIGN KEY(user_id) REFERENCES Users_m(user_id)
+  FOREIGN KEY(processing_id) REFERENCES Workers(worker_id) on delete cascade,
+  FOREIGN KEY(user_id) REFERENCES Users_m(user_id) on delete cascade
 );
 
 create table Answers
@@ -47,9 +47,9 @@ create table Answers
   suggestion VARCHAR(255),#管理员给的修改建议
   processing_status VARCHAR(20),
   processing_id CHAR(8),
-  FOREIGN KEY(processing_id) REFERENCES Workers(worker_id),
-  FOREIGN KEY(answer_user) REFERENCES Users_m(user_id),
-  FOREIGN KEY(question_id) REFERENCES Questions(question_id)
+  FOREIGN KEY(processing_id) REFERENCES Workers(worker_id) on delete cascade,
+  FOREIGN KEY(answer_user) REFERENCES Users_m(user_id) on delete cascade,
+  FOREIGN KEY(question_id) REFERENCES Questions(question_id) on delete cascade
 );
 
 
@@ -80,14 +80,14 @@ create table Answers_store
 ( Store_id varchar(20),
   User_id varchar(20),
   ANSWER_ID VARCHAR(20),
-  FOREIGN KEY(user_id) REFERENCES Users_m(user_id),
-  FOREIGN KEY(answer_id) REFERENCES answers(answer_id)
+  FOREIGN KEY(user_id) REFERENCES Users_m(user_id) on delete cascade,
+  FOREIGN KEY(answer_id) REFERENCES answers(answer_id) on delete cascade
 );
 
 create table Subjects_store_questions
 (subject_id varchar(20),
  question_id varchar(20),
- FOREIGN KEY(question_id) REFERENCES questions(question_id)
+ FOREIGN KEY(question_id) REFERENCES questions(question_id) on delete cascade
 );
 
 create table comment_answers/*需要修改*/
@@ -96,8 +96,8 @@ comment_id varchar(20) primary key,
 comment varchar (255),
 answer_id VARCHAR(20),
 User_id varchar(20),
-FOREIGN KEY(answer_id) REFERENCES answers(answer_id),
-FOREIGN KEY(user_id) REFERENCES Users_m(user_id)
+FOREIGN KEY(answer_id) REFERENCES answers(answer_id) on delete cascade,
+FOREIGN KEY(user_id) REFERENCES Users_m(user_id) on delete cascade
 );
 
 create table id_directory/*充当生成唯一性id的累加容器*/

@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
     export default {
         name: "HotList",
         props: {
@@ -54,7 +55,13 @@
           }
         },
         mounted: function(){
-
+          axios.get("/query")
+            .then(function(response){
+              console.log(response)
+            })
+            .catch(function (err) {
+              console.log(err)
+            })
         },
         methods: {
           /**

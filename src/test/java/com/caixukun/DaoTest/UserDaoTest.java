@@ -14,6 +14,11 @@ public class UserDaoTest extends ApplicationTests {
     @Autowired
     private UsersDao usersDaoTest;
     @Test
+    public void selectUserTest(){
+        UsersM usersM = usersDaoTest.selectUsersInformation("wangzi");
+        System.out.println(usersM.getPassword());
+    }
+    @Test
     public void insertTest(){
         UsersM usersM = new UsersM();
         usersM.setUser_id("wddwedw");

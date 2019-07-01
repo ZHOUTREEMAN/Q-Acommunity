@@ -1,7 +1,10 @@
 package com.weblatter.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.weblatter.dao.AnswersDao;
 import com.weblatter.dao.UsersDao;
+import com.weblatter.service.imple.PeopleService;
+import com.weblatter.util.Information;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -29,4 +32,7 @@ public class HelloWorldController {
      public String getUserList(){
         return String.valueOf(usersDao.selectAllUsersInformation().size());
     }
+    @Autowired
+    PeopleService peopleService;
+
 }

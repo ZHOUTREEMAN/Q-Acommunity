@@ -9,22 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/identify")
 public class LoginController {
     @Autowired
     PeopleService peopleService;
 
-    @GetMapping("/vaildate")
-    public String validateUser(String userName, String password){
-        Information<UsersM>info = peopleService.validateSignIn(userName, password);
-        return JSON.toJSONString(info);
+    @GetMapping("/h")
+    public String t(){
+        return "cdscscsd";
     }
-
     @GetMapping("/sign/complete")
-    public void signUser(@RequestBody String userInfo){
-        UsersM usersM = JSON.parseObject(userInfo, UsersM.class);
-
+    public void signUser(String userName, String password){
+        peopleService.UserRegister(userName, password);
     }
 
     @GetMapping("/sign/validate")
@@ -35,6 +31,12 @@ public class LoginController {
             info.setMainData(true);
         else
             info.setMainData(false);
+        return JSON.toJSONString(info);
+    }
+
+    @RequestMapping("/vali")
+    public String validateUser(String userName, String password){
+        Information<UsersM> info = peopleService.validateSignIn(userName, password);
         return JSON.toJSONString(info);
     }
 }

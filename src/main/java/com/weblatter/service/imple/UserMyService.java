@@ -111,7 +111,7 @@ public class UserMyService implements IUserService {
         return null;
     }
 
-    public String getId(String table){
+    public String getId(String table){//去id表中得到当前某个表主码值
         IdDirectory idDirectory = createIdDao.selectIdDirectory("1000");
         if(idDirectory==null){
             System.out.println("test");

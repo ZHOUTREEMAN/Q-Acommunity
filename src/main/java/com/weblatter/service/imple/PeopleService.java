@@ -1,6 +1,9 @@
 package com.weblatter.service.imple;
 
+import com.weblatter.dao.BanLogin_Dao;
+import com.weblatter.dao.BanTalk_Dao;
 import com.weblatter.dao.UsersDao;
+import com.weblatter.entity.BanTalk;
 import com.weblatter.entity.UsersM;
 import com.weblatter.service.IPeopleService;
 import com.weblatter.util.Information;
@@ -12,6 +15,10 @@ public class PeopleService implements IPeopleService {
 
     @Autowired
     UsersDao usersDao;
+    @Autowired
+    BanLogin_Dao banLogin_dao;
+    @Autowired
+    BanTalk_Dao banTalk_dao;
 
     public Information<UsersM> validateSignIn(String userName, String password) {
         UsersM usersM = usersDao.selectUsersInformation(userName);
@@ -19,8 +26,12 @@ public class PeopleService implements IPeopleService {
             return new Information<UsersM>("用户不存在", null);
         else if(!usersM.getPassword().equals(password))
             return new Information<UsersM>("密码不正确", null);
-        else
-            return new Information<UsersM>("登录成功", usersM);
+        else{
+            if(banLogin_dao.selectByUserId(usersDao.selectUserIdByName(userName))==null)
+                return new Information<UsersM>("登录成功", usersM);
+            else
+                return new Information<UsersM>("你已被管理员禁止登录",usersM);
+        }
     }
 
     public UsersM getUsersInformation(String userName) {

@@ -22,4 +22,12 @@ public interface IQuestionService {
      * @return回答列表
      */
     public List<Answers>getAnswers(String questionId ,int num);
+    /** 
+    * @Description: 获得问题下的评论 
+    * @Param: [] 
+    * @return: java.util.List<com.weblatter.entity.Questions> 
+    * @Author: 周林辉
+    * @Date: 2019/7/1 
+    */ 
+    public List<Questions>getCommonQuestions();
 }

@@ -31,6 +31,7 @@ public class QuestionService implements IQuestionService {
             }
         }else return null;
     }
+
     public List<Questions>getCommonQuestions(){
         List<Questions>questions = questionsDao.selectAllQuestions();
         List<Questions>resList = new ArrayList<Questions>();

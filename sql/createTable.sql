@@ -108,5 +108,16 @@ create table id_directory/*充当生成唯一性id的累加容器*/
     answer_id CHAR(6),
     comment_id varchar(20),
     store_id varchar(20)
-)
+);
 
+create table ban_talk/*管理员发言禁令*/
+(
+    no_talk_id char(8),
+    worker_id char(8)
+);
+
+create table ban_login/*管理员的登陆禁令*/
+(
+    no_login_id char(8),
+    worker_id char (8)
+);

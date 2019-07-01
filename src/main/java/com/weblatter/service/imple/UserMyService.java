@@ -70,6 +70,15 @@ public class UserMyService implements IUserService {
         return 0;
     }
 
+    public void alterUserInfo(String user_id, String name,String personal_profile,String email,String password){
+        UsersM usersM = usersDao.selectUsersInformation2(user_id);
+        usersM.setEmail(email);
+        usersM.setPersonal_profile(personal_profile);
+        usersM.setUserName(name);
+        usersM.setPassword(password);
+        usersDao.updateInformation(usersM);
+    }
+
     public void commentAnswer(String answerId, String userId,String comment) {
         CommentAnswer commentAnswer=new CommentAnswer();
         commentAnswer.setAnswer_id(answerId);

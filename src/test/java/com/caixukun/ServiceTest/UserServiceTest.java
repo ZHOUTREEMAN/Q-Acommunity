@@ -45,4 +45,9 @@ public class UserServiceTest extends ApplicationTests {
     public void commentAnswerTest(){
         userMyService.commentAnswer("000001","00000002", "的确是这样");
     }
+
+    @Test
+    public void alterInfoTest(){
+        userMyService.alterUserInfo("00000001","周林辉", "我爱学习", "123@qq.com", "123");
+    }
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface BanLogin_Dao {
     //增加禁止登陆
-    @Insert("INSERT INTO ban_login VALUES(#{no_login_id}, #{work_id})")
+    @Insert("INSERT INTO ban_login VALUES(#{no_login_id}, #{worker_id})")
     public void insertBanLogin(BanLogin banLogin);
     //删除禁止登陆
     @Delete("DELETE FROM ban_login WHERE no_login_id=#{user_id}")

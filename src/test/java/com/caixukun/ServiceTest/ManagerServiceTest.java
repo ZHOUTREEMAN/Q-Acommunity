@@ -6,6 +6,7 @@ import com.weblatter.entity.Inspect;
 import com.weblatter.entity.Questions;
 import com.weblatter.service.imple.ManagerService;
 import org.junit.Test;
+import org.junit.validator.PublicClassValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.swing.*;
@@ -58,5 +59,25 @@ public class ManagerServiceTest extends ApplicationTests {
         {
             System.out.println(a.getAnswer_id()+"  "+a.getAnswer());
         }
+    }
+    @Test
+    public void BanTalkTest()
+    {
+        managerService.BanTalk("00000001", "00000001");
+    }
+    @Test
+    public void LetTalkTest()
+    {
+        managerService.LetTalk("00000001");
+    }
+    @Test
+    public void BanLoginTest()
+    {
+        managerService.BanLogin("00000001", "00000001");
+    }
+    @Test
+    public void LetLoginTest()
+    {
+        managerService.LetLogin("00000001");
     }
 }

@@ -1,15 +1,12 @@
 package com.weblatter.service.imple;
 
-import com.weblatter.dao.AnswersDao;
-import com.weblatter.dao.QuestionsDao;
-import com.weblatter.dao.WorkersDao;
-import com.weblatter.entity.Answers;
-import com.weblatter.entity.Inspect;
-import com.weblatter.entity.Questions;
+import com.weblatter.dao.*;
+import com.weblatter.entity.*;
 import com.weblatter.service.IManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +18,10 @@ public class ManagerService implements IManagerService {
     AnswersDao answersDao;
     @Autowired
     QuestionsDao questionsDao;
+    @Autowired
+    BanTalk_Dao banTalk_dao;
+    @Autowired
+    BanLogin_Dao banLogin_dao;
     public List<Inspect> managerPageShow( ) {
         List<Questions> result1 =questionsDao.selectUndoQuestion();
         List<Answers> result2=answersDao.selectUndoAnswer();
@@ -74,5 +75,27 @@ public class ManagerService implements IManagerService {
 
     public List<Answers> showAllInspectAnswers(String userId) {
         return answersDao.selectDoneAnswer(userId);
+    }
+
+    public void BanTalk(String userId,String workId) {
+        BanTalk banTalk = new BanTalk();
+        banTalk.setNo_talk_id(userId);
+        banTalk.setWorker_id(workId);
+        banTalk_dao.insertBanTalk(banTalk);
+    }
+
+    public void LetTalk(String userId) {
+        banTalk_dao.deleteBanTalk(userId);
+    }
+
+    public void BanLogin(String userId, String workId) {
+        BanLogin banLogin=new BanLogin();
+        banLogin.setNo_login_id(userId);
+        banLogin.setWorker_id(workId);
+        banLogin_dao.insertBanLogin(banLogin);
+    }
+
+    public void LetLogin(String userId) {
+        banLogin_dao.deleteBanLogin(userId);
     }
 }

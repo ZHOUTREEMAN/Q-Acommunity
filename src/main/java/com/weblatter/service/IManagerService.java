@@ -36,4 +36,13 @@ public interface IManagerService {
      */
     public List<Answers>showAllInspectAnswers(String userId);
 
+    public void BanTalk(String userId,String workId);//禁言用户
+
+    public void LetTalk(String userId);//解除用户禁言
+
+    public void BanLogin(String userId,String workId);//禁止用户登陆
+
+    public void LetLogin(String userId);//解除用户的登陆禁令
+
+
 }

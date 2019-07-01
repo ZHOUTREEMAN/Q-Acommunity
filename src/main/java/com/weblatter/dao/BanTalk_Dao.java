@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface BanTalk_Dao {
     //增加禁言
-    @Insert("INSERT INTO ban_talk VALUES(#{no_talk_id}, #{work_id})")
+    @Insert("INSERT INTO ban_talk VALUES(#{no_talk_id}, #{worker_id})")
     public void insertBanTalk(BanTalk banTalk);
     //删除禁言
     @Delete("DELETE FROM ban_talk WHERE no_talk_id=#{user_id}")

@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface Questions_followingDao {
     @Select("SELECT * FROM Questions_following WHERE user_n=#{user_n}")
-    public List<QuestionsFollowing> selectFollowQuestions(String userN);//查看用户关注的问题
+    public List<QuestionsFollowing> selectFollowQuestions(String user_n);//查看用户关注的问题
 
     @Select("SELECT * FROM Questions_following WHERE question=#{ques}")
     public List<QuestionsFollowing> selectFollowedQuestionsUser(String ques);//查看关注此问题的用户

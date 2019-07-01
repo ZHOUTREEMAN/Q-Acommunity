@@ -3,6 +3,7 @@ package com.weblatter.service.imple;
 import com.weblatter.dao.*;
 import com.weblatter.entity.*;
 import com.weblatter.service.IUserService;
+import com.weblatter.util.Information;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,48 +27,59 @@ public class UserMyService implements IUserService {
     private Questions_followingDao questions_followingDao;
     @Autowired
     private CreateIdDao createIdDao;
+    @Autowired
+    private BanTalk_Dao banTalk_dao;
     //private static double question_id_init=10000;
 //    private static long answer_id_init=100000;
 //    private static long answerstore_id_init=100000;
     private Calendar calendar;
 
-    public void sendQuestion(String question,String complement, int score,String user_id,String label) {
-        String question_id=getId("question_id");
-        //question_id_init++;
-        calendar=Calendar.getInstance();
-        Questions questions=new Questions();
-        questions.setAnswer_num(0);
-        questions.setComplement(complement);
-        questions.setIntegral(score);
-        questions.setLabel_m(label);
-        questions.setQuestion(question);
-        questions.setQuestion_following_num(0);
-        questions.setQuestion_id(question_id);
-        questions.setProcessing_status("0");//未审核
+    public Information<?> sendQuestion(String question, String complement, int score, String user_id, String label) {
+        if(banTalk_dao.selectByUserId(user_id)==null){
+            String question_id=getId("question_id");
+            //question_id_init++;
+            calendar=Calendar.getInstance();
+            Questions questions=new Questions();
+            questions.setAnswer_num(0);
+            questions.setComplement(complement);
+            questions.setIntegral(score);
+            questions.setLabel_m(label);
+            questions.setQuestion(question);
+            questions.setQuestion_following_num(0);
+            questions.setQuestion_id(question_id);
+            questions.setProcessing_status("0");//未审核
 
-        questions.setQuestion_time(new Date(calendar.get(Calendar.YEAR)-1900, calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE)+1));
-        questions.setUser_id(user_id);
-        questions.setProcessing_id(null);
-        questionsDao.insertQuestions(questions);
+            questions.setQuestion_time(new Date(calendar.get(Calendar.YEAR)-1900, calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE)+1));
+            questions.setUser_id(user_id);
+            questions.setProcessing_id(null);
+            questionsDao.insertQuestions(questions);
+            return new Information<Questions>("发布成功",questions);
+        }else{
+            return new Information<Questions>("你已被禁言",new Questions());
+        }
     }
 
-    public int answerQuestion(String questionId, String userID,String answer) {
-        Questions questions = questionsDao.selectQuestion(questionId);
-        UsersM usersM=usersDao.selectUsersInformation2(userID);
-        usersM.setIntegral(usersM.getIntegral()+questions.getIntegral());
-        calendar=Calendar.getInstance();
-        Answers answers = new Answers();
-        answers.setAnswer(answer);
-        answers.setAnswer_id(getId("answer_id"));
-        answers.setAnswer_time(new Date(calendar.get(Calendar.YEAR)-1900, calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE)+1));
-        answers.setAnswer_user(userID);
-        answers.setObjection_num(0);
-        answers.setProcessing_id(null);
-        answers.setProcessing_status("0");
-        answers.setQuestion_id(questionId);
-        answers.setSupportNum(0);
-        answersDao.insertQuestions(answers);
-        return 0;
+    public Information<Answers> answerQuestion(String questionId, String userID,String answer) {
+        if(banTalk_dao.selectByUserId(userID)==null){
+            Questions questions = questionsDao.selectQuestion(questionId);
+            UsersM usersM=usersDao.selectUsersInformation2(userID);
+            usersM.setIntegral(usersM.getIntegral()+questions.getIntegral());
+            calendar=Calendar.getInstance();
+            Answers answers = new Answers();
+            answers.setAnswer(answer);
+            answers.setAnswer_id(getId("answer_id"));
+            answers.setAnswer_time(new Date(calendar.get(Calendar.YEAR)-1900, calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE)+1));
+            answers.setAnswer_user(userID);
+            answers.setObjection_num(0);
+            answers.setProcessing_id(null);
+            answers.setProcessing_status("0");
+            answers.setQuestion_id(questionId);
+            answers.setSupportNum(0);
+            answersDao.insertQuestions(answers);
+            return new Information<Answers>("回答成功",answers);
+        }else {
+            return new Information<Answers>("你已被禁言",new Answers());
+        }
     }
 
     public void alterUserInfo(String user_id, String name,String personal_profile,String email,String password){
@@ -79,13 +91,19 @@ public class UserMyService implements IUserService {
         usersDao.updateInformation(usersM);
     }
 
-    public void commentAnswer(String answerId, String userId,String comment) {
-        CommentAnswer commentAnswer=new CommentAnswer();
-        commentAnswer.setAnswer_id(answerId);
-        commentAnswer.setComment(comment);
-        commentAnswer.setUser_id(userId);
-        commentAnswer.setComment_id(getId("comment_id"));
-        comment_answersDao.insertComments(commentAnswer);
+    public Information<CommentAnswer> commentAnswer(String answerId, String userId,String comment) {
+        if(banTalk_dao.selectByUserId(userId)==null){
+            CommentAnswer commentAnswer=new CommentAnswer();
+            commentAnswer.setAnswer_id(answerId);
+            commentAnswer.setComment(comment);
+            commentAnswer.setUser_id(userId);
+            commentAnswer.setComment_id(getId("comment_id"));
+            comment_answersDao.insertComments(commentAnswer);
+            return new Information<CommentAnswer>("评论成功",commentAnswer);
+        }else{
+            return new Information<CommentAnswer>("你已被禁言",new CommentAnswer());
+        }
+
     }
 
     public void support(String answerId) {//点赞

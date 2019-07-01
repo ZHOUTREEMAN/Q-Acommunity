@@ -33,9 +33,12 @@ public interface UsersDao {
     @Insert("INSERT INTO USERS_M VALUES(#{user_id}, #{user_name}, #{followers_num}, #{fans_num}, #{email}, #{personal_profile}, #{password})")
     public void insertNewUser(UsersM usersM);
 
-    @Delete("DELETE FROM USERS_M WHERE USER_NAME=#{userName}")
+    @Delete("DELETE FROM USERS_M WHERE USER_NAME=#{user_name}")
     public void deleteUser(String userName);
 
     @Update("UPDATE USERS_M SET USER_NAME=#{user_name},EMAIL=#{email},PERSONAL_PROFILE=#{personal_profile}, PASSWORD=#{password} WHERE USER_ID=#{user_id}")
     public void updateInformation(UsersM usersM);
+
+    @Select("SELECT user_id from users_m where user_name=#{user_name}")
+    public String selectUserIdByName(String user_name);
 }

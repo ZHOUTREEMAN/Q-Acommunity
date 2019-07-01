@@ -19,7 +19,7 @@ public interface IUserService {
      * @param score 悬赏积分
      * 注意自动生成Question的其他选项
      */
-    public void sendQuestion(String question,String complement, int score,String user_id,String label);
+    public Information<?> sendQuestion(String question,String complement, int score,String user_id,String label);
 
     /**
      * 回答问题
@@ -28,7 +28,7 @@ public interface IUserService {
      * 通过两个参数自动生成问题其他信息，注意积分的变化
      */
 
-    public int answerQuestion(String questionId, String userID,String answer) throws IOException;
+    public Information<?> answerQuestion(String questionId, String userID,String answer) throws IOException;
 
     /**
      * 评论
@@ -36,7 +36,7 @@ public interface IUserService {
      * @param userId
      * @return 更新用户积分
      */
-    public void commentAnswer(String answerId, String userId,String comment);
+    public Information<?> commentAnswer(String answerId, String userId,String comment);
 
     /**
      * 点赞
@@ -64,4 +64,13 @@ public interface IUserService {
      * @return 这个返回要注意，返回的是问题和问题相应的图片的url,尽量搜索图片,如果没有图片返回空值
      */
     public Map<Questions, String> hostpageQuestions(String userId);
+
+    /**
+    * @Description:  更新用户信息
+    * @Param: [user_id, name, personal_profile, email, password]
+    * @return: void
+    * @Author: zhoulinhui
+    * @Date: 2019/7/1
+    */
+    public void alterUserInfo(String user_id, String name,String personal_profile,String email,String password);
 }

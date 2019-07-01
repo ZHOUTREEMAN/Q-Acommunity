@@ -19,4 +19,5 @@ public interface BanLogin_Dao {
     //查询某个用户是否在禁止登陆中
     @Select("SELECT * FROM ban_login WHERE no_login_id=#{user_id}")
     public BanLogin selectByUserId(String user_id);
+
 }

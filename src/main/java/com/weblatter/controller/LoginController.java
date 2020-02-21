@@ -39,4 +39,12 @@ public class LoginController {
         Information<UsersM> info = peopleService.validateSignIn(userName, password);
         return JSON.toJSONString(info);
     }
+    @GetMapping("/modify")
+    public void modifyInformation(String oldUserName, String userName, String email, String password){
+        peopleService.updateUserInformation(oldUserName, userName, email, password);
+    }
+    @GetMapping("/usermodify")
+    public void modifyUser(String oldUserName, String userName, String email, String password, String tel){
+        peopleService.userModify(oldUserName, userName, email, password, tel);
+    }
 }

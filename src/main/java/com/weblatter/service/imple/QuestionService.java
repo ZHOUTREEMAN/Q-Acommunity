@@ -5,6 +5,7 @@ import com.weblatter.dao.QuestionsDao;
 import com.weblatter.entity.Answers;
 import com.weblatter.entity.Questions;
 import com.weblatter.service.IQuestionService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,9 @@ public class QuestionService implements IQuestionService {
             }
         }else return null;
     }
-
+    public List<Questions>getAllQuestion(){
+        return questionsDao.selectAllQuestions();
+    }
     public List<Questions>getCommonQuestions(){
         List<Questions>questions = questionsDao.selectAllQuestions();
         List<Questions>resList = new ArrayList<Questions>();
@@ -40,4 +43,20 @@ public class QuestionService implements IQuestionService {
                 questions.add(questions1);
         return resList;
     }
+    public void changeLabel(String questionID, String label){
+
+        Questions questions = questionsDao.selectQuestion(questionID);
+        if(questions != null)
+            questions.setLabel_m(label);
+        questionsDao.updateInformation(questions);
+    }
+    public List<Questions>getALLProcessQuestions(){
+        List<Questions>questions = questionsDao.selectAllQuestions();
+        List<Questions>resList = new ArrayList<Questions>();
+        for(Questions questions1 : questions)
+            if(questions1.getProcessing_status().equals("1"))
+                resList.add(questions1);
+        return resList;
+    }
+
 }

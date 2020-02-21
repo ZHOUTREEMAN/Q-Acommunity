@@ -56,4 +56,9 @@ public class QuestionsDaoTest extends ApplicationTests {
 
         questionsDao.updateInformation(questions);
     }
+    @Test
+    public void setLbelTest(){
+        Questions id = questionsDao.selectQuestion("00003");
+        System.out.println(id.getQuestion());
+    }
 }

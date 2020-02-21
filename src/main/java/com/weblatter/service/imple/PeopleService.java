@@ -84,4 +84,19 @@ public class PeopleService implements IPeopleService {
        usersM.setFollowers_num(0);
        usersDao.insertNewUser(usersM);
     }
+    public void userModify(String oldUserName, String userName, String email, String password, String tel){
+        UsersM usersM = usersDao.selectUsersInformation(oldUserName);
+        if(usersM == null){
+
+        }
+        else {
+            UsersM res = usersM;
+            res.setUserName(userName);
+            res.setPassword(password);
+            res.setEmail(email);
+            res.setPersonal_profile(tel);
+            usersDao.updateInformation(res);
+
+        }
+    }
 }

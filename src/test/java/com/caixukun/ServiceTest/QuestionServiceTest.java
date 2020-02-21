@@ -3,6 +3,7 @@ package com.caixukun.ServiceTest;
 import com.caixukun.ApplicationTests;
 import com.weblatter.dao.QuestionsDao;
 import com.weblatter.entity.Answers;
+import com.weblatter.entity.Questions;
 import com.weblatter.service.imple.QuestionService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,9 @@ public class QuestionServiceTest extends ApplicationTests {
             System.out.println(answers.getAnswer_id());
         }
 
+    }
+    @Test
+    public void getallTest(){
+        questionService.changeLabel("00003","赚钱啊,cdsc");
     }
 }

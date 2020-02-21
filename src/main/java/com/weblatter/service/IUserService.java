@@ -19,16 +19,8 @@ public interface IUserService {
      * @param score 悬赏积分
      * 注意自动生成Question的其他选项
      */
-    public Information<?> sendQuestion(String question,String complement, int score,String user_id,String label);
 
-    /**
-     * 回答问题
-     * @param questionId
-     * @param userID
-     * 通过两个参数自动生成问题其他信息，注意积分的变化
-     */
-
-    public Information<?> answerQuestion(String questionId, String userID,String answer) throws IOException;
+    public int answerQuestion(String questionId, String userID,String answer) throws IOException;
 
     /**
      * 评论
@@ -36,7 +28,7 @@ public interface IUserService {
      * @param userId
      * @return 更新用户积分
      */
-    public Information<?> commentAnswer(String answerId, String userId,String comment);
+    public void commentAnswer(String answerId, String userId,String comment);
 
     /**
      * 点赞

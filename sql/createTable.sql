@@ -1,4 +1,4 @@
-create table Users_m
+create table Users_M
 ( user_id CHAR(8) PRIMARY KEY,
   user_name VARCHAR(20) NOT NULL,
   followers_num SMALLINT,

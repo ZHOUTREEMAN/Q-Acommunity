@@ -22,18 +22,22 @@ public class QuestionsController {
     @Autowired
     QuestionService questionService;
     @GetMapping("/commit")
-    public void commitToManager(String question, String tag, String userID, int q_score){
-        userMyService.sendQuestion(question, null, q_score, userID, tag);
+    public void commit(String question, String userID, int q_score, String label_m, String complement){
+        userMyService.sendQuestion(question, q_score, userID, label_m, complement);
     }
     @GetMapping("/gethotquestionlist")
     public String getHotQuestionList(int num){
         List<Questions>questions = questionService.getCommonQuestions();
         return null;
     }
-
     @GetMapping("/getquestionlist")
     public String getCommonList(){
         List<Questions>questions = questionService.getCommonQuestions();
+        return JSON.toJSONString(questions);
+    }
+    @GetMapping("/getallquestions")
+    public String getAllQuestions(){
+        List<Questions>questions = questionService.getAllQuestion();
         return JSON.toJSONString(questions);
     }
 }

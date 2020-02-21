@@ -13,7 +13,7 @@ public class UserServiceTest extends ApplicationTests {
 
     @Test
     public void sentQuestionTest(){
-        userMyService.sendQuestion("周林辉帅吗？1","周林辉帅吗？2", 10, "00000001", "生活");
+
     }
 
     @Test
